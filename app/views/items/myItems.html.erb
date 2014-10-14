@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="span6 top-page"><h1><%= @user.name %>'s Items</h1></div>
+    <div class="span6 top-page"><%= link_to 'New Item', new_item_path,class: "btn btn-custom pull-right" %></div>
+</div>
+
+<div class="row" id="masonry-container">
+  <div class="page">
+    <% unless @items.empty? %>
+      <%= render :partial => "item", :collection => @items  %>
+    <% else %>
+      <p>You don't have any items right now. <%= link_to "Add some?", new_item_path, :class => "custom-link" %></p>
+    <% end %> 
+  </div>
+</div>
+
+<script type="text/javascript">
+(function() {
+  var page = 1, 
+      loading = false;
+
+  function nearBottomOfPage() {
+    return $(window).scrollTop() > $(document).height() - $(window).height() - 150;
+  }
+
+  $(window).scroll(function(){
+    if (loading) {
+      return;
+    }
+
+    if(nearBottomOfPage()) {
+      loading=true;
+      page++;
+      $.ajax({
+        url: "/items/myItems?page=" + page,
+        type: 'get',
+        dataType: 'script',
+        success: function() {
+          if (page <= <%= @items.num_pages %>) {
+            $(window).sausage('draw');
+            loading=false;
+          } else {
+            $(window).sausage('destroy');
+          }
+        }
+        
+      });
+      $(".item").imagesLoaded(function(){ 
+        $("#masonry-container").masonry('reload');
+      });
+    }
+  });
+  $(window).sausage();
+}());
+$(document).ready(function () {
+ $(".item").imagesLoaded(function(){ 
+  $("#masonry-container").imagesLoaded(function(){
+    $("#masonry-container").masonry({
+      itemSelector: '.item',
+      isAnimated: true,
+      columnWidth: function( containerWidth ) {
+        var width = $(window).width();
+        var col = 200; 
+        if(width < 1200 && width >= 980) {
+          col = 160;
+        }
+        else if(width < 980 && width >= 768) {
+          col = 124;
+        }
+        return col;
+      }
+    });
+  });
+ });
+
+  
+});
+
+</script>

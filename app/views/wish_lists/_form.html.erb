@@ -1,0 +1,94 @@
+<h2>(*)Required Fields</h2>
+<p>We'll notify you when an item meeting any of your criteria is added.</p>
+
+<%= form_for(@wish_list) do |f| %>
+<%= render 'shared/wish_list_error_messages' %>
+
+<div class="row-fluid">
+  <div class="span7 drop-shadow lifted description-input">
+
+    <div class="row-fluid">
+      <div class="field span10">
+        <%= f.label :name, "Item Name", :style => "display:inline" %>*
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="field span10">
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </div> 
+    </div>
+
+    <div class="row-fluid">
+      <div class="field span4">
+        <%= f.label :category, :style => "display:inline" %>*
+        <%= f.select :category, item_categories %>
+      </div>
+
+      <div class="field span4">	
+        <%= f.label :condition, :style => "display:inline" %>*
+        <%= f.select :condition, item_conditions %>
+      </div>
+
+      <div class="field span2">
+        <%= f.label :quantity, :style => "display:inline" %>*
+        <%= f.number_field :quantity, :min => 0 %>
+      </div>
+    </div>
+
+    <div class="row-fluid">
+
+      <div class="field span4">
+        <%= f.label :available_until, 'Date Required By', :style => "display:inline" %>*
+        <%= text_field :wish_list, :available_until %>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="span4 drop-shadow lifted description-input">
+
+    <div class="field input-medium">
+      <%= f.label :price,'Price($)' %>
+      <%= f.number_field :price, :step => "0.1", :min => 0 %>
+    </div>
+
+    <div class="field input-medium">
+      <%= f.label :length, 'Length (m)'%>
+      <%= f.number_field :length, :step => "0.1", :min => 0  %>
+    </div>
+
+    <div class="field input-medium">
+      <%= f.label :width, 'Width (m)' %>
+      <%= f.number_field :width, :step => "0.1", :min => 0 %>
+    </div>
+
+    <div class="field input-medium">
+      <%= f.label :height, 'Height (m)'%>
+      <%= f.number_field :height, :step => "0.1", :min => 0  %>
+    </div>
+
+    <div class="field input-medium">
+      <%= f.label :weight, 'Weight (kg)' %>
+      <%= f.number_field :weight, :step => "0.1", :min => 0 %>
+    </div>
+
+    <div class="field input-large">
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row-fluid">
+  <div class="span11" style="margin-top:-26px">
+    <%= f.submit "Submit", class: "btn btn-large btn-success", id: "submit_wish_list_item" %>
+    <%= link_to 'Cancel', wish_lists_path, class: "btn btn-large btn-danger", id: "back_to_index_new" %>
+  </div>
+</div>
+<% end %>

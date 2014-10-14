@@ -1,0 +1,31 @@
+
+<% provide(:title, 'Change Password') %>
+<h1>Change Password</h1>
+
+<div class="row">
+	<div class="span6 offset3">
+
+		<%= form_for @user, :url => {:action => 'validate_pwd_change'}, :method => 'put' do |f| %>
+		<%= render 'shared/error_messages' %>
+
+		<div class="field">
+			<%= f.label :curr_password, "Current Password" %>
+			<%= f.password_field :curr_password %>
+		</div>
+
+		<div class="field">
+			<%= f.label :password, "New Password" %>
+			<%= f.password_field :password %>
+		</div>
+
+		<div class="field">
+			<%= f.label :password_confirmation, "Confirm Password" %>
+			<%= f.password_field :password_confirmation %>
+		</div>
+		<div class="actions"><%= f.submit "Change Password", class: "btn btn-large btn-success" %></div>
+		<% end %>
+
+                <%= link_to "Back", current_user %>
+	       		
+	</div>
+</div>

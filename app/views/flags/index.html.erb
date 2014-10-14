@@ -1,0 +1,22 @@
+<h1>Flags</h1>
+
+<table class = "table table-striped">
+  <thead>
+    <th>Reason</th>
+    <th>Comment</th>
+    <th>Flagged By</th>
+  </thead>
+
+<div id="flags">
+	<% for flag in @flags %>
+	<tr>
+		<div class="flag">
+			<td><%= flag.reason %></td>
+			<td><%= flag.comment %></td>
+			<td><%= link_to flag.user.name, user_path(flag.user) %></td>
+		</div>
+	</tr>
+	<% end %>
+</div>
+
+</table>

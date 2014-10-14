@@ -1,0 +1,18 @@
+<div class="span4 item"> 
+    <div class="drop-shadow lifted">
+        <%= link_to item do %>
+        <%= image_tag item.image_url.to_s%>
+
+        <h4><%= item.name %></h4>
+        <% end %>
+        <p><b>Category:</b> <%= item.category %></p>
+        <p><%= raw(truncate(item.description, :length => 220, :omission => (link_to "...continued", item) )) %></p>
+        <% if !item.location.nil? %>
+        <p>
+        <b>Location:</b> <%= item.location.address %>
+        </p>
+        <%end%>
+        <p><em>Uploaded by: <%= link_to User.find(item.user_id).name,User.find(item.user_id)%></em></p>
+        <%= link_to "Details", item, :class => "btn btn-small btn-block btn-details" %>
+    </div> 
+</div>

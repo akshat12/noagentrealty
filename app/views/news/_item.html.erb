@@ -1,0 +1,22 @@
+<div class="span12 item">
+  <div class="drop-shadow lifted">
+    <h1><%= item.title %></h1>
+    <h2>by <%= User.find(item.user_id).name %></h2>
+    <p style="color:#777777 !important;"><%= item.created_at.strftime('%a %b %d %Y %I:%M %p') %></p>
+    <% if item.updated_at != item.created_at %>
+    <p style="color:#999999 !important;">Updated: <%= item.updated_at.strftime('%a %b %d %Y %I:%M %p') %></p>
+    <% end %>
+    <% if item.image? %>
+    <p><%= image_tag item.image_url.to_s %></p>
+    <% end %>
+    <p><%= raw item.content %></p>
+    <p><%= link_to 'Read', news_path(item), class: "btn btn-medium btn-success", style: "margin:2px 2px 2px 2px;" %>
+    <% if signed_in? %>
+     <% if current_user.admin? %>
+        <%= link_to 'Delete', news_path(item), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-medium btn-danger pull-right", style: "margin:2px 2px 2px 2px;" %>
+        <%= link_to 'Edit', edit_news_path(item), class: "btn btn-medium btn-primary pull-right", style: "margin:2px 2px 2px 2px;" %>
+     <% end %>
+    <%end%>
+    </p>
+  </div>
+</div>

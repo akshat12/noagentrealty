@@ -1,0 +1,56 @@
+<% provide(:title, 'dashboard') %>
+<div class="row-fluid">
+
+  <div class="span12 top-page">
+    <h1>Admin Dashboard</h1>
+  </div>
+
+</div>
+
+<div class="masthead">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="background-position:right top;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target="#admin">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <%= image_tag 'decohub-logo-admin.png', class: "brand" %>
+        <div id="admin" class="nav-collapse">
+        <ul class="nav">
+          <li><%= link_to "Priority Flags", admin_index_path %></li>
+          <li><%= link_to 'Flagged Events', flagged_events_admin_index_path %> </li>
+          <li class="active"><%= link_to 'Flagged Items', flagged_items_admin_index_path%></li>
+          <li><%= link_to 'Flagged Projects', flagged_projects_admin_index_path%></li>
+          <li><%= link_to 'Flagged Users', flagged_users_admin_index_path%></li>
+          <li><%= link_to 'Banned Users', banned_users_admin_index_path %></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2> Flagged Items </h2>
+<table class = "table table-striped">
+  <thead>
+    <th>Item Name</th>
+    <th>Reason</th>
+    <th>Comment</th>
+    <th>Reported By</th>
+    <th>Delete Flag </th>
+    <th>Delete Item </th>
+  </thead>
+
+<% @flagged_items.each do |i| %>
+  <tr>
+    <td><%= link_to i['item'].name, i['item'] %></td>
+    <td><%= i['flag'].reason %></td>
+    <td><%= i['flag'].comment %></td>
+    <td><%= link_to i['user'].name, i['user'] %></td>
+    <td><%= button_to("Delete", {:controller => "flags", :action => "destroy", :id => i['flag'].id}, :method =>:delete, :confirm => "Are you sure?",:class => "btn btn-large btn-primary") %></td>
+    <td><%= link_to 'Delete', i['item'], method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-large btn-danger" %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Negative_Invalid_Email_Edit</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Negative_Invalid_Email_Edit</td></tr>
+</thead><tbody>
+<!--Title: Negative- Invalid Email Edit-->
+<!--Description: Tests to see that updating an account with an invalid email address is not possible.-->
+<!--Begin variable storage-->
+<tr>
+	<td>store</td>
+	<td>Tests</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Test</td>
+	<td>invalidEmail</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Test@something</td>
+	<td>invalidEmail2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Test@mailinator.com</td>
+	<td>invalidEmail3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>test123</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Email is invalid</td>
+	<td>invalidEmailError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Email has already been taken</td>
+	<td>emailAlreadyTakenError</td>
+</tr>
+<!--End variable storage-->
+<!---->
+<!--Setup - Navigate to the edit profile section-->
+<tr>
+	<td>click</td>
+	<td>link=Tester</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Test 1: Change all information. For email. don't eenter in an @ sign-->
+<tr>
+	<td>type</td>
+	<td>id=user_name</td>
+	<td>${username}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_email</td>
+	<td>${invalidEmail}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 1: The user's account should not be editted and should remain on the account edit page.-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${invalidEmailError}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;container&quot;]/h1</td>
+	<td>Edit User</td>
+</tr>
+<!---->
+<!--Test 2: Now for email, don't enter in a domain name-->
+<tr>
+	<td>type</td>
+	<td>id=user_email</td>
+	<td>${invalidEmail2}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 2: The user's account should not be editted and should remain on the account edit page.-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${invalidEmailError}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;container&quot;]/h1</td>
+	<td>Edit User</td>
+</tr>
+<!---->
+<!--Test 3: Now for email, enter in an email that exists in the data base-->
+<tr>
+	<td>type</td>
+	<td>id=user_email</td>
+	<td>${invalidEmail3}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 3: The user's account should not be editted and should remain on the account edit page.-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${emailAlreadyTakenError}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;container&quot;]/h1</td>
+	<td>Edit User</td>
+</tr>
+<!---->
+<!--Assertion 4: Return to the user profile and check to see that all information remains the same-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Back</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;row-fluid&quot;]/div/h4</td>
+	<td>Tester</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;row-fluid&quot;]/div/p</td>
+	<td>randomtest@mailinator.com</td>
+</tr>
+</tbody></table>
+</body>
+</html>

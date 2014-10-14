@@ -1,0 +1,54 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+search_location1:
+  address: forestfloor 
+  latitude: 
+  longitude:
+  locatable: search_test1
+  locatable_type: Item
+
+search_location2:
+  address: bridgstone
+  latitude: 
+  longitude:
+  locatable: search_test2
+  locatable_type: Item
+
+search_location3:
+  address: Fairview
+  latitude:
+  longitude:
+  locatable: search_test3
+  locatable_type: Item
+
+search_location4:
+  address: downtown 
+  latitude: 
+  longitude:
+  locatable: search_test4
+  locatable_type: Item
+
+integration_location:
+  locatable_type: Event
+  locatable: test_event1
+  address: pub
+  latitude: 42.816301
+  longitude: -88.1693857
+  
+location X:
+  locatable_type: Item
+  locatable: test_all
+  address: ubc
+  latitude: 43.816301
+  longitude: -18.1693857
+
+location Z:
+  locatable_type: Item
+  locatable: test_required
+  address: downtown
+  latitude: -43.816301
+  longitude: 18.1693857
+  
+
+
+

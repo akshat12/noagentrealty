@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Successful_Project_Edit</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Successful_Project_Edit</td></tr>
+</thead><tbody>
+<!--Title: Successful Project Edit-->
+<!--Description: Test that a project can be editted successfully-->
+<!---->
+<!--Begin variable creation-->
+<tr>
+	<td>store</td>
+	<td>Project Edit Test</td>
+	<td>projectName</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Can we actually edit a project?</td>
+	<td>projectDescription</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Project was successfully updated.</td>
+	<td>projectUpdatedSuccessfullyMsg</td>
+</tr>
+<!--End variable creation-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!--Test 1: Create a new project with all fields filled in-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Gallery</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'View')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=project_name</td>
+	<td>${projectName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=project_description</td>
+	<td>${projectDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 1: The project should be created successfully-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-notice&quot;]</td>
+	<td>${projectUpdatedSuccessfullyMsg}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;span12 top-page&quot;]</td>
+	<td>${projectName}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;span4 drop-shadow lifted description&quot;]/p</td>
+	<td>${projectDescription}</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

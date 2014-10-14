@@ -1,0 +1,98 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+	<div class="navbar-inner">
+		<div class="container">
+			<%= link_to root_path do %>
+			<%= image_tag 'decohub-logo.png', class: "brand" %>
+			<% end %>
+			<a class="btn btn-navbar" data-toggle="collapse" data-target="#topnav">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+
+
+			<div id="topnav" class="nav-collapse collapse">
+				
+				<ul class="nav nav-stacked">  
+
+					<%= form_tag search_results_path, :class => "navbar-search pull-left" do %>
+					<%= text_field_tag :search, params[:search], :class =>"input-medium search-query", :placeholder => "Search for items..." %>
+					<br><%= link_to "Advanced", new_search_path, :class =>"advanced-search pull-right" %>
+					<% end %>
+
+
+				</ul>
+
+				<ul class="nav pull-right"> 
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Items <b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><%= link_to "Appliances", items_path( :category => "Appliances") %></li>
+							<li><%= link_to "Architectural", items_path( :category => "Architectural") %></li>
+							<li><%= link_to "Cabinets", items_path( :category => "Cabinets") %></li>
+							<li><%= link_to "Electrical", items_path( :category => "Electrical") %></li>
+							<li><%= link_to "Exterior Doors", items_path( :category => "Exterior Doors") %></li>
+							<li><%= link_to "Flooring", items_path( :category => "Flooring") %></li>
+							<li><%= link_to "Furniture", items_path( :category => "Furniture") %></li>
+							<li><%= link_to "Hardware", items_path( :category => "Hardware") %></li>
+							<li><%= link_to "Heating & Cooling", items_path( :category => "Heating & Cooling") %></li>
+							<li><%= link_to "Interior Doors", items_path( :category => "Interior Doors") %></li>
+							<li><%= link_to "Lumber", items_path( :category => "Lumber") %></li>
+							<li><%= link_to "Masonry, Tile & Stone", items_path( :category => "Masonry, Tile & Stone") %></li>
+							<li><%= link_to "Plumbing", items_path( :category => "Plumbing") %></li>
+							<li><%= link_to "Tools", items_path( :category => "Tools") %></li>
+							<li><%= link_to "Windows", items_path( :category => "Windows") %></li>
+							<li><%= link_to "Other", items_path( :category => "Other") %></li>
+						</ul>
+					</li>
+					<li class="divider-vertical"></li>
+					<li><%= link_to "News", news_index_path %></li>
+					<li class="divider-vertical"></li>
+					<li><%= link_to "Events", events_path %></li>
+					<li class="divider-vertical"></li>
+					<li><%= link_to "Gallery", gallery_path %></li>
+					<li class="divider-vertical"></li>
+					<% if signed_in? %>
+					
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<%= truncate(current_user.name, :length => 11, :separator => ' ', :omission => '') %> 
+							<i class="icon-user icon-white"></i><b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><%= link_to "Profile", current_user %></li>
+
+							<li><%= link_to 'Add Reuse Item',new_item_path %></li>	
+							<li><%= link_to "Wish List", wish_lists_path %></li>
+							<li><%= link_to 'My Items', url_for(:controller => 'items', :action => 'myItems') %></li>                       
+							<% if is_admin? %>
+							<li class="divider"></li>
+							<li><%= link_to "Admin Dashboard", admin_index_path %></li>
+							<li><%= link_to "Users", users_path %></li>
+							<% end %>
+							<li class="divider"></li>
+							<li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
+						</ul>
+					</li>
+
+					<% else %>
+
+					<li><%= link_to "Sign In/", signin_path, class: "signin" %><%= link_to "Sign Up", signup_path, class: "signup" %></li>
+
+
+					<% end %>
+					
+				</ul>
+				
+			</div>
+			
+		</div>
+	</div>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</header>

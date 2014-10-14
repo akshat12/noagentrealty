@@ -1,0 +1,36 @@
+flag_test1:
+  id: 1
+  reason: test reason
+  comment: test comment
+  flaggable: search_test1
+  flaggable_type: Items
+  user: search_user1
+  
+flag_item_test:
+  reason: test reason
+  comment: test comment
+  flaggable: search_test2
+  flaggable_type: Items
+  user: search_user1
+
+flag_user_test:
+  reason: test reason
+  comment: test comment
+  flaggable: notification_user1
+  flaggable_type: User
+  user: search_user2
+
+
+flag_event_test:
+  reason: test reason
+  comment: test comment
+  flaggable: test_event2
+  flaggable_type: Event
+  user: search_user1
+
+flag_project_test:
+  reason: test reason
+  comment: test comment
+  flaggable: project_test2
+  flaggable_type: Projects
+  user: search_user1

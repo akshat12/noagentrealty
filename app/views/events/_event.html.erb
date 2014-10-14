@@ -1,0 +1,20 @@
+<div class="span4 event"> 
+  <div class="drop-shadow lifted">
+    <%= link_to event do %>
+    <%= image_tag event.image_url.to_s %>
+    <p class="calendar"><%= event.event_date.strftime('%d') %> <em><%= event.event_date.strftime('%b') %></em></p>
+    <h4><%= event.name %></h4>
+    <% end %>
+    <p><b>When: </b><%= event.start_time.strftime('%I:%M %p') %>
+    <% if !event.end_time.nil? %>
+    to <%= event.end_time.strftime('%I:%M %p') %>
+    <% end %>
+  </p>
+  <% if !event.location.nil? %>
+  <p><b>Where:</b> <%= event.location.address %></p>
+  <%end%>
+  <p><b>Hosted by: </b><%= User.find(event.user_id).name %></p>
+  <p><%= raw(truncate(event.description, :length=>220, :omission => (link_to "...continued", event) )) %></p>
+  <%= link_to 'Show', event, :class => "btn btn-small btn-block btn-details" %>
+</div> 
+</div>

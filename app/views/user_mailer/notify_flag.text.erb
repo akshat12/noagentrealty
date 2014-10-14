@@ -1,0 +1,18 @@
+Hello <%= @user.name %>,
+
+A user has submitted a flag:
+
+Type: <%= @flag.flaggable_type %>
+Reason: <%= @flag.reason %>
+Comment: <%= @flag.comment %>
+
+<% if @flag.flaggable_type == 'User' %>
+	Link: <%= link_to "View", user_url(@flaggable) %>
+<% elsif @flag.flaggable_type == 'Event' %>
+	Link: <%= link_to "View", event_url(@flaggable) %>
+<% elsif @flag.flaggable_type == 'Item' %>
+	Link: <%= link_to "View", item_url(@flaggable) %>
+<% elsif @flag.flaggable_type == 'Project' %>
+	Link: <%= link_to "View", project_url(@flaggable) %>
+<% else %>
+<% end %>

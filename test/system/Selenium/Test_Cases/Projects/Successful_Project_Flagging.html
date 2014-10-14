@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Successful_Item_Flagging</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Successful_Item_Flagging</td></tr>
+</thead><tbody>
+<!--Title: Successful Project Flagging-->
+<!--Description: Tests that a project can be flagged successfully-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!--Declare variables-->
+<tr>
+	<td>store</td>
+	<td>Test Project</td>
+	<td>projectName</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Test that project creation works</td>
+	<td>projectDescription</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>newtester@mailinator.com</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>test123</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Spamming</td>
+	<td>flagReason</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>This person is spamming me!</td>
+	<td>flagComment</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Report was successfully submitted.</td>
+	<td>successfulFlagComment</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Flaggable has already been taken</td>
+	<td>flagAgainError</td>
+</tr>
+<!--End variable creation-->
+<!---->
+<!--Test 1: Create a project. Log off and then log in as a new user. Then flag the post and fill in all values-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Gallery</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit Project</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=project_name</td>
+	<td>${projectName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=project_description</td>
+	<td>${projectDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Log out-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign Out</td>
+	<td></td>
+</tr>
+<!--Log in as new user-->
+<tr>
+	<td>clickAndWait</td>
+	<td>class=signin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=session_email</td>
+	<td>${email}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=session_password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Navigate to project flagging-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Gallery</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'View')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Flag</td>
+	<td></td>
+</tr>
+<!--Flag the project-->
+<tr>
+	<td>select</td>
+	<td>id=flag_reason</td>
+	<td>${flagReason}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=flag_comment</td>
+	<td>${flagComment}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 1: The project should be successfully flagged-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-notice&quot;]</td>
+	<td>${successfulFlagComment}</td>
+</tr>
+<!---->
+<!--Test 2: Flag the project again-->
+<!--Navigate to item flagging-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Gallery</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'View')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Flag</td>
+	<td></td>
+</tr>
+<!--Flag the event-->
+<tr>
+	<td>select</td>
+	<td>id=flag_reason</td>
+	<td>${flagReason}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=flag_comment</td>
+	<td>${flagComment}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 2: The flag should not be submitted again-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${flagAgainError}</td>
+</tr>
+<!---->
+<!--Log out-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign Out</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

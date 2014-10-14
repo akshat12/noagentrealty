@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Successful_Account_Update</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Successful_Account_Update</td></tr>
+</thead><tbody>
+<!--Title: Successful Account Update-->
+<!--Description: Tests to see that updating an account with valid information is successful-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!---->
+<!--Variables Storage:-->
+<tr>
+	<td>store</td>
+	<td>Testers</td>
+	<td>username1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Tester</td>
+	<td>username2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>testers@mailinator.com</td>
+	<td>email1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>randomtest@mailinator.com</td>
+	<td>email2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>test123</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>User was successfully updated.</td>
+	<td>userUpdateSuccessfulMessage</td>
+</tr>
+<!--End variable storage-->
+<!---->
+<!--Setup - Navigate to the edit profile section-->
+<tr>
+	<td>click</td>
+	<td>link=Tester</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Profile</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<!--Test 1: Edit just the user's name and confirm the changes-->
+<tr>
+	<td>type</td>
+	<td>id=user_name</td>
+	<td>${username1}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 1: User's account should be updated successfully with the user name changed only. User should be redirected to the profile page.-->
+<tr>
+	<td>assertText</td>
+	<td>class=alert alert-notice</td>
+	<td>${userUpdateSuccessfulMessage}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;row-fluid&quot;]/div/h4</td>
+	<td>${username1}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;row-fluid&quot;]/div/p</td>
+	<td>${email}</td>
+</tr>
+<!---->
+<!--Test 2: Edit just the user's email address -->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_email</td>
+	<td>${email1}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 2: User's account should be updated successfully with the user's email changed only.-->
+<tr>
+	<td>assertText</td>
+	<td>class=alert alert-notice</td>
+	<td>${userUpdateSuccessfulMessage}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;row-fluid&quot;]/div/h4</td>
+	<td>${username1}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;row-fluid&quot;]/div/p</td>
+	<td>${email1}</td>
+</tr>
+<!---->
+<!--Test 3: Edit both the user name and email address-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_name</td>
+	<td>${username2}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_email</td>
+	<td>${email2}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 3: User's account should be updated successfully with both the user name and email changed-->
+<tr>
+	<td>assertText</td>
+	<td>class=alert alert-notice</td>
+	<td>${userUpdateSuccessfulMessage}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;row-fluid&quot;]/div/h4</td>
+	<td>${username2}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;row-fluid&quot;]/div/p</td>
+	<td>${email2}</td>
+</tr>
+</tbody></table>
+</body>
+</html>

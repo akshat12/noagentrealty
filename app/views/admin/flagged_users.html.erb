@@ -1,0 +1,63 @@
+<% provide(:title, 'dashboard') %>
+<div class="row-fluid">
+
+  <div class="span12 top-page">
+    <h1>Admin Dashboard</h1>
+  </div>
+
+</div>
+
+<div class="masthead">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="background-position:right top;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target="#admin">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <%= image_tag 'decohub-logo-admin.png', class: "brand" %>
+        <div id="admin" class="nav-collapse">
+        <ul class="nav">
+          <li><%= link_to "Priority Flags", admin_index_path %></li>
+          <li><%= link_to 'Flagged Events', flagged_events_admin_index_path %> </li>
+          <li><%= link_to 'Flagged Items', flagged_items_admin_index_path%></li>
+          <li><%= link_to 'Flagged Projects', flagged_projects_admin_index_path%></li>
+          <li class="active"><%= link_to 'Flagged Users', flagged_users_admin_index_path%></li>
+          <li><%= link_to 'Banned Users', banned_users_admin_index_path %></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2> Flagged Users </h2>
+<table class = "table table-striped">
+  <thead>
+    <th>User Name</th>
+    <th>Reason</th>
+    <th>Comment</th>
+    <th>Reported By</th>
+    <th>Delete Flag </th>
+    <th>Ban User</th>
+    <th>Delete User</th>
+  </thead>
+
+<% @flagged_users.each do |u| %>
+  <tr>
+   <td><%= link_to u['flagged_user'].name, u['flagged_user'] %></td>
+    <td><%= u['flag'].reason %></td>
+    <td><%= u['flag'].comment %></td>
+    <td><%= link_to u['user'].name, u['user'] %></td>
+    <td><%= button_to("Delete", {:controller => "flags", :action => "destroy", :id => u['flag'].id}, :method => :delete, :confirm => "Are you sure?",:class => "btn btn-large btn-primary") %></td>
+    <% if(u['flagged_user'].banned) %>
+      <td><%= button_to("Reactivate",{:controller => "admin", :action => "ban_user", :user =>u['flagged_user'], :ban => false},:method => :put, :confirm => "Are you sure?",:class => "btn btn-large btn-warning") %> </td>
+    <% else %>
+      <td><%= button_to("Ban",{:controller => "admin", :action => "ban_user", :user =>u['flagged_user'], :ban => true},:method => :put, :confirm => "Are you sure?",:class => "btn btn-large btn-warning") %> </td>
+    <% end %>
+    <td><%= link_to 'Delete', u['flagged_user'], method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-large btn-danger" %></td>
+  </tr>
+  
+<% end %>
+</table>

@@ -1,0 +1,58 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# User 00 - Typical User
+search_user1:
+  name: XXX
+  email: x@y.com
+  password_digest: YYYY
+  remember_token: ZZZZ
+  admin: FALSE
+  confirmed: TRUE
+  confirm_code: 
+  password_reset_token:
+  password_reset_sent_at:
+
+  # User 01 - Admin User
+search_user2:
+  name: user two
+  email: user@too.com
+  password_digest: AA
+  remember_token: BB
+  admin: TRUE
+  confirmed: TRUE
+  confirm_code: 
+  password_reset_token:
+  password_reset_sent_at:
+    
+notification_user1:
+  name: user three
+  email: user3@too.com
+  password_digest: AA
+  remember_token: BB
+  admin: FALSE
+  confirmed: TRUE
+  confirm_code: 
+  password_reset_token:
+  password_reset_sent_at:
+
+notification_user2:
+  name: user four
+  email: user4@too.com
+  password_digest: AA
+  remember_token: BB
+  admin: FALSE
+  confirmed: TRUE
+  confirm_code: 
+  password_reset_token:
+  password_reset_sent_at:
+  
+notification_user3:
+  name: user five
+  email: user5@too.com
+  password_digest: AA
+  remember_token: BB
+  admin: FALSE
+  confirmed: TRUE
+  confirm_code: 
+  password_reset_token:
+  password_reset_sent_at:

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DecoHub</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <link href='http://fonts.googleapis.com/css?family=Exo:200,400,700,900,400italic,700italic,900italic,200italic' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+  <div class="wrapper">
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <%= yield %> 
+    </div>
+    <div class="push"></div>
+  </div>
+	
+  <div class="footer">
+    <%= render 'layouts/footer' %>
+  </div>
+
+</body>
+</html>

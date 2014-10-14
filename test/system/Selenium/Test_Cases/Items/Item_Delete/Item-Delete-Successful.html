@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Item-Delete-Successful</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Item-Delete-Successful</td></tr>
+</thead><tbody>
+<!--Title: Item Delete Successful-->
+<!--Description: Deletes both items the user has created-->
+<!---->
+<!--Test 1: Find the created wires and click on the delete item button.-->
+<tr>
+	<td>click</td>
+	<td>link=Items</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Electrical</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Details')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 1a: The user should be redirected to a page asking the user why they deleted the item-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class =&quot;center&quot;]/h1</td>
+	<td>We would appreciate it you let us know why you deleted this item</td>
+</tr>
+<!--Assertion 1b: The item should no longer show up on the list of item-->
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Items</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Electrical</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Wires</td>
+	<td></td>
+</tr>
+<!---->
+<!--Test 2: Find the created wooden  flooring and click on the delete item button.-->
+<tr>
+	<td>click</td>
+	<td>link=Items</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Furniture</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Details</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForConfirmation</td>
+	<td>Are you sure?</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 1a: The user should be redirected to a page asking the user why they deleted the item-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class =&quot;center&quot;]/h1</td>
+	<td>We would appreciate it you let us know why you deleted this item</td>
+</tr>
+<!--Assertion 1b: The item should no longer show up on the list of item-->
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Items</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Furniture</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Not currently populated.</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

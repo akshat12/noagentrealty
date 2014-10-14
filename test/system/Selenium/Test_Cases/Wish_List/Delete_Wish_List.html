@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Delete_Wish_List</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Delete_Wish_List</td></tr>
+</thead><tbody>
+<!--Title: Delete Wish List-->
+<!--Description: Tests that a user can delete a wish list successfully-->
+<!---->
+<!--Test 1: Navigate to the wish list page and delete the screw wish list-->
+<!--Open the web  page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!--Navigate to the wish list items-->
+<tr>
+	<td>click</td>
+	<td>link=Tester</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Wish List</td>
+	<td></td>
+</tr>
+<!--Delete the screws wish list item-->
+<tr>
+	<td>clickAndWait</td>
+	<td>id=wish_list_delete</td>
+	<td></td>
+</tr>
+<!--Assertion 1: The wish list should be deleted successfully-->
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>Screws</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

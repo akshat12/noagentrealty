@@ -1,0 +1,39 @@
+<% provide(:title, 'project info') %>
+
+<div class="row-fluid">
+
+  <div class="span12 top-page">
+    <h1><%= @project.name %></h1>
+  </div>
+
+</div>
+
+<div class="row-fluid">
+  <div class="span8">
+   <div class="drop-shadow lifted">
+      <%= image_tag @project.image_url.to_s%>
+   </div>
+  </div>
+  
+   <div class="span4 drop-shadow lifted description">
+     <h3>Description</h3>
+     <p><%= @project.description %></p>
+
+    <p><% if signed_in? %>
+       <% if current_user?(@project.user) %>
+	<%= link_to 'Edit', edit_project_path(@project), class: "btn btn-medium btn-primary", style: "margin:2px 2px 2px 2px;" %>
+	<%= link_to 'Delete', project_path(@project), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-medium btn-danger", style: "margin:2px 2px 2px 2px;" %>
+       <% elsif current_user.admin? %>
+	<%= link_to 'Delete', project_path(@project), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-medium btn-danger", style: "margin:2px 2px 2px 2px;" %>
+        <%= link_to 'Contact author', new_user_message_path(User.find(@project.user_id)), class: "btn btn-medium btn-success", style: "margin:2px 2px 2px 2px;" %>
+       <%else%>
+        <%= link_to 'Flag', new_project_flag_path(@project), class: "btn btn-medium btn-primary", style: "margin:2px 2px 2px 2px;" %>
+        <%= link_to 'Contact author', new_user_message_path(User.find(@project.user_id)), class: "btn btn-medium btn-success", style: "margin:2px 2px 2px 2px;" %>
+      <% end %>
+   <% end %>
+  <%= link_to 'Author Profile',User.find(@project.user_id), class: "btn btn-medium btn-success", style: "margin:2px 2px 2px 2px;"%>
+   </p>
+
+ </div>
+</div>
+

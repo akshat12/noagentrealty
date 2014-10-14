@@ -1,0 +1,54 @@
+<%#
+# The MIT License
+# Copyright (c) 2012 Michael Hartl
+# http://opensource.org/licenses/mit-license.php
+
+# /*
+#  * ----------------------------------------------------------------------------
+#  * "THE BEER-WARE LICENSE" (Revision 42):
+#  * Michael Hartl wrote this code. As long as you retain this notice you
+#  * can do whatever you want with this stuff. If we meet some day, and you think
+#  * this stuff is worth it, you can buy me a beer in return.
+#  * ----------------------------------------------------------------------------
+#  */
+%>
+
+<div class="row-fluid">
+
+  <div class="span12 top-page">
+    <h1>Wish List</h1>
+    <p>Add items to your wish list and we'll e-mail you when the items you're looking for are available!</p>
+  </div>
+
+</div>
+
+<div class ="row-fluid">
+ <div class="span12 drop-shadow lifted">
+  <div class ="row-fluid">
+    <table class = "table table-striped">
+      <thead>
+        <th>Item</th>
+        <th>Category</th>
+        <th>Location</th>
+        <th>Details/Edit</th>
+      </thead>
+      
+      <% @wish_list.each do |wish_lst| %>
+      <tr>
+        <td><%= wish_lst.name %></td>
+        <td><%= wish_lst.category %></td>
+        <td><%= wish_lst.location %></td>
+        <td width="170px;"><%= link_to 'Details', wish_lst, class: "btn btn-small btn-success", style: "margin:2px;" %>
+          <%= link_to 'Edit', edit_wish_list_path(wish_lst), class: "btn btn-small btn-primary", style: "margin:2px;" %>
+          <%= link_to 'Delete', wish_lst, :method => :delete, :class => :destroy, data: { confirm: 'Are you sure?' }, class: "btn btn-small btn-danger", id: "wish_list_delete", style: "margin:2px;" %> 
+        </td>
+      </tr>
+      
+      <% end %>
+    </table>
+    <br/>
+  </div>
+  <br/>
+  <center><%= link_to "Add Item to Wish List", new_wish_list_path, class: "btn btn-custom", id: "add_wish_list_item" %></center>
+</div>
+</div>

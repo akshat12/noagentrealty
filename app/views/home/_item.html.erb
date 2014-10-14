@@ -1,0 +1,15 @@
+<div class="span4 item"> 
+	<div class="drop-shadow lifted">
+		<%= link_to item do %>
+		<% if item.image? %>
+			<%= image_tag item.image_url(:thumb) %>
+		<% else %>
+			<%= image_tag item.image_url.to_s %>
+		<% end %>
+
+		<h4><%= item.name %></h4>
+		<% end %>
+		<p><%= raw(truncate(item.description, :length => 220, :omission => (link_to "...continued", item, class: "custom-link") )) %></p>
+		<%= link_to "Details", item, :class => "btn btn-small btn-block btn-details" %>
+	</div> 
+</div>

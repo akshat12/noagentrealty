@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Unsuccessful_Edit_Invalid_Event_Date</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Unsuccessful_Edit_Invalid_Event_Date</td></tr>
+</thead><tbody>
+<!--Title: Unsuccessful_Edit_Invalid_Event_Date-->
+<!--Description: Tests that an event cannot be updated with an invalid event date-->
+<!---->
+<!--Begin variable declaration-->
+<tr>
+	<td>store</td>
+	<td>Test Event</td>
+	<td>eventName</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Tests that events actually works!</td>
+	<td>eventDescription</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>1920-05-01</td>
+	<td>invalidDate1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2035-04-31</td>
+	<td>invalidDate2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>06</td>
+	<td>eventStartHour</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>15</td>
+	<td>eventStartMinute</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>06</td>
+	<td>eventEndHour</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>30</td>
+	<td>eventEndMinute</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Event date must be on or after today</td>
+	<td>eventPriorToTodayError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Event date is not a valid date</td>
+	<td>eventDateNotValidError</td>
+</tr>
+<!--End variable declaration-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!---->
+<!--Test 1: Click on the event link and update an event. Make the event date prior to today.-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Events</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Show')])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_name</td>
+	<td>${eventName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_description</td>
+	<td>${eventDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_event_date</td>
+	<td>${invalidDate1}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=event_start_time_4i</td>
+	<td>${eventStartHour}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_start_time_5i</td>
+	<td>${eventStartMinute}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=event_end_time_4i</td>
+	<td>${eventEndHour}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_end_time_5i</td>
+	<td>${eventEndMinute}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 1: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${eventPriorToTodayError}</td>
+</tr>
+<!---->
+<!--Test 2: Attempt to update an event with a date that doesn't exist.-->
+<tr>
+	<td>type</td>
+	<td>id=event_event_date</td>
+	<td>${invalidDate2}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 2: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li[2]</td>
+	<td>${eventDateNotValidError}</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

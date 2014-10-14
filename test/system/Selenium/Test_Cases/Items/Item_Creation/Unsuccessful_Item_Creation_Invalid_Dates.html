@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Unsuccessful_Item_Creation_Invalid_Dates</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Unsuccessful_Item_Creation_Invalid_Dates</td></tr>
+</thead><tbody>
+<!--Title: Unsucessful_Item_Creation_Invalid_Dates-->
+<!--Description: Create a new item with an invalid dates-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!---->
+<!--Variable Declaration-->
+<tr>
+	<td>store</td>
+	<td>Wires</td>
+	<td>itemName</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Cheap and good condition wires.</td>
+	<td>itemDescription</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Electrical</td>
+	<td>itemCategory</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Like New</td>
+	<td>itemCondition</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>10</td>
+	<td>itemQuantity</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>1920-05-01</td>
+	<td>invalidDate1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2035-04-31</td>
+	<td>invalidDate2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2035-05-01</td>
+	<td>itemDateAvailableFrom</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2030-05-01</td>
+	<td>itemDateAvailableUntil</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Available from date must be on or after today</td>
+	<td>availableFromPriorToTodayError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Available until date must be on or after today</td>
+	<td>availableUntilPriorToTodayError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Available from is not a valid date</td>
+	<td>availableFromInvalidError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Available until is not a valid date</td>
+	<td>availableUntilInvalidError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Available until must be set to after from date</td>
+	<td>availableUntilAfterFromError</td>
+</tr>
+<!--End Variable Declaraion-->
+<!---->
+<!--Test 1: Create a new item with a date availiable from before today-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_name</td>
+	<td>${itemName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_description</td>
+	<td>${itemDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_category</td>
+	<td>${itemCategory}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_condition</td>
+	<td>${itemCondition}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_quantity</td>
+	<td>${itemQuantity}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_from</td>
+	<td>${invalidDate1}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_until</td>
+	<td>${itemDateAvailableUntil}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 1: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${availableFromPriorToTodayError}</td>
+</tr>
+<!---->
+<!--Test 2: Create a new item with a date availiable from in the incorrect format-->
+<tr>
+	<td>type</td>
+	<td>id=item_available_from</td>
+	<td>${invalidDate2}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 2: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li[2]</td>
+	<td>${availableFromInvalidError}</td>
+</tr>
+<!---->
+<!--Test 3: Create a new item with a date availiable until in the incorrect format-->
+<tr>
+	<td>type</td>
+	<td>id=item_available_from</td>
+	<td>${itemDateAvailableFrom}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_until</td>
+	<td>${invalidDate2}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 3: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li[2]</td>
+	<td>${availableUntilInvalidError}</td>
+</tr>
+<!---->
+<!--Test 4: Create a new item with a date availiable until before date availiable from-->
+<tr>
+	<td>type</td>
+	<td>id=item_available_until</td>
+	<td>${itemDateAvailableUntil}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 4: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${availableUntilAfterFromError}</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

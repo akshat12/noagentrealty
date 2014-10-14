@@ -1,0 +1,49 @@
+<%#
+# The MIT License
+# Copyright (c) 2012 Michael Hartl
+# http://opensource.org/licenses/mit-license.php
+
+# /*
+#  * ----------------------------------------------------------------------------
+#  * "THE BEER-WARE LICENSE" (Revision 42):
+#  * Michael Hartl wrote this code. As long as you retain this notice you
+#  * can do whatever you want with this stuff. If we meet some day, and you think
+#  * this stuff is worth it, you can buy me a beer in return.
+#  * ----------------------------------------------------------------------------
+#  */
+%>
+
+<% provide(:title, 'Sign up') %>
+<div class="row-fluid">
+
+  <div class="span12 top-page">
+    <h1 style="text-align:center;">Welcome</h1>
+    <h2 style="text-align:center;">Create a New Account</h2>
+  </div>
+
+</div>
+
+
+<div class="row">
+	<div class="span6 offset3">
+		
+		
+		<%= form_for(@user) do |f| %>
+                <%= render 'shared/error_messages' %>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+                <p>Password must be a minimum length of 6 characters.</p>
+		<%= f.label :password_confirmation, "Confirm Password" %>
+		<%= f.password_field :password_confirmation %>
+
+		<%= f.submit "Create my account", class: "btn btn-large btn-success" %>
+
+		<% end %>
+	</div>
+</div>

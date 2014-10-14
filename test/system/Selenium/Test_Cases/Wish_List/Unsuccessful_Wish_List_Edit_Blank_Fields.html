@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Unsuccessful_Wish_List_Edit_Blank_Fields</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Unsuccessful_Wish_List_Edit_Blank_Fields</td></tr>
+</thead><tbody>
+<!--Title: Unsucessful_Wish_List_Edit_Blank_Fields-->
+<!--Description: Test that the user cannot update a wish list with required blank fields-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!--Variable Declaration-->
+<tr>
+	<td>store</td>
+	<td>Wires</td>
+	<td>wishListName</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Electrical</td>
+	<td>wishListCategory</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Like New</td>
+	<td>wishListCondition</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>10</td>
+	<td>wishListQuantity</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2035-05-30</td>
+	<td>wishListDateRequiredBy</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Name can't be blank</td>
+	<td>blankNameError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Quantity can't be blank</td>
+	<td>blankQuantityError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Available until can't be blank</td>
+	<td>blankDateError</td>
+</tr>
+<!--End Variable Declaraion-->
+<!---->
+<!--Test 1: Open the wish list edit page and clear all fields. Then, click update wish list without entering in anything.-->
+<tr>
+	<td>click</td>
+	<td>link=Tester</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Wish List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_quantity</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_length</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_width</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_height</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_weight</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_location</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_available_until</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 1: The user should be stopped with an error message-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Edit Wish List Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankNameError}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li[2]</td>
+	<td>${blankQuantityError}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li[4]</td>
+	<td>${blankDateError}</td>
+</tr>
+<!---->
+<!--Test 2: Edit the wish list but don't put in a name. All other required fields are filled in.-->
+<tr>
+	<td>type</td>
+	<td>id=wish_list_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=wish_list_category</td>
+	<td>${wishListCategory}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=wish_list_condition</td>
+	<td>${wishListCondition}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_quantity</td>
+	<td>${wishListQuantity}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_available_until</td>
+	<td>${wishListDateRequiredBy}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 2: The user should be stopped with an error message-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Edit Wish List Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankNameError}</td>
+</tr>
+<!---->
+<!--Test 3: Edit the wish list item but do not provide a quantity. All other required fields are filled in.-->
+<tr>
+	<td>type</td>
+	<td>id=wish_list_name</td>
+	<td>${wishListName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=wish_list_category</td>
+	<td>${wishListCategory}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=wish_list_condition</td>
+	<td>${wishListCondition}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_quantity</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_available_until</td>
+	<td>${wishListDateRequiredBy}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 3: The user should be stopped with an error message-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Edit Wish List Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankQuantityError}</td>
+</tr>
+<!---->
+<!--Test 4: Edit an wish list but do not provide a date. All other required fields are filled in.-->
+<tr>
+	<td>type</td>
+	<td>id=wish_list_name</td>
+	<td>${wishListName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=wish_list_category</td>
+	<td>${wishListCategory}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=wish_list_condition</td>
+	<td>${wishListCondition}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_quantity</td>
+	<td>${wishListQuantity}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=wish_list_available_until</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 4: The user should be stopped with an error message-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Edit Wish List Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankDateError}</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

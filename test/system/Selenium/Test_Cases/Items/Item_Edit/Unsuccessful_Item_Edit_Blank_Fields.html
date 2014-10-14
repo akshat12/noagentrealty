@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Unsuccessful_Item_Creation_Blank_Fields</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Unsuccessful_Item_Creation_Blank_Fields</td></tr>
+</thead><tbody>
+<!--Title: Unsucessful_Item_Edit_Required_Fields-->
+<!--Description: Edit a new item with only required fields filled in-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!--Variable Declaration-->
+<tr>
+	<td>store</td>
+	<td>Wires</td>
+	<td>itemName</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Cheap and good condition wires.</td>
+	<td>itemDescription</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Electrical</td>
+	<td>itemCategory</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Like New</td>
+	<td>itemCondition</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>10</td>
+	<td>itemQuantity</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2035-05-01</td>
+	<td>itemAvailableFrom</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2035-06-01</td>
+	<td>itemAvailableUntil</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Item was successfully created.</td>
+	<td>itemCreateSuccessfullyMessage</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Name can't be blank</td>
+	<td>blankNameError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Description can't be blank</td>
+	<td>blankDescriptionError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Quantity can't be blank</td>
+	<td>blankQuantityError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Available from can't be blank</td>
+	<td>blankAvailableFromError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Available until can't be blank</td>
+	<td>blankAvailableUntilError</td>
+</tr>
+<!--End Variable Declaraion-->
+<!---->
+<!--Test 1: Find the open and try to update it. Then, clear all fields and click on the submit button.-->
+<tr>
+	<td>click</td>
+	<td>link=Items</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Electrical</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Details')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_quantity</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_length</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_width</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_height</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_weight</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_price</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_location_attributes_address</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_from</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_until</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 1: The user should be stopped with an error message-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Edit Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankNameError}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li[2]</td>
+	<td>${blankDescriptionError}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li[3]</td>
+	<td>${blankQuantityError}</td>
+</tr>
+<!---->
+<!--Test 2: Update an item without a name. All other required fields are filled in.-->
+<tr>
+	<td>type</td>
+	<td>id=item_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_description</td>
+	<td>${itemDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_category</td>
+	<td>${itemCategory}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_condition</td>
+	<td>${itemCondition}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_quantity</td>
+	<td>${itemQuantity}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_from</td>
+	<td>${itemAvailableFrom}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_until</td>
+	<td>${itemAvailableUntil}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 2: The user should be stopped with an error message-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Edit Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankNameError}</td>
+</tr>
+<!---->
+<!--Test 3: Update an item without a description. All other required fields are filled in.-->
+<tr>
+	<td>type</td>
+	<td>id=item_name</td>
+	<td>${itemName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_category</td>
+	<td>${itemCategory}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_condition</td>
+	<td>${itemCondition}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_quantity</td>
+	<td>${itemQuantity}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_from</td>
+	<td>${itemAvailableFrom}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_until</td>
+	<td>${itemAvailableUntil}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 3: The user should be stopped with an error message-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Edit Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankDescriptionError}</td>
+</tr>
+<!---->
+<!--Test 4: Update an item without a quantity. All other required fields are filled in.-->
+<tr>
+	<td>type</td>
+	<td>id=item_name</td>
+	<td>${itemName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_description</td>
+	<td>${itemDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_category</td>
+	<td>${itemCategory}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_condition</td>
+	<td>${itemCondition}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_quantity</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_from</td>
+	<td>${itemAvailableFrom}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_until</td>
+	<td>${itemAvailableUntil}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 4: The user should be stopped with an error message-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Edit Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankQuantityError}</td>
+</tr>
+<!---->
+<!--Test 5: Update an item without a date available from. All other required fields are filled in.-->
+<tr>
+	<td>type</td>
+	<td>id=item_name</td>
+	<td>${itemName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_description</td>
+	<td>${itemDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_category</td>
+	<td>${itemCategory}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_condition</td>
+	<td>${itemCondition}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_quantity</td>
+	<td>${itemQuantity}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_from</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_until</td>
+	<td>${itemAvailableUntil}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 5: The user should be stopped with an error message-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Edit Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankAvailableFromError}</td>
+</tr>
+<!---->
+<!--Test 6: Update an item without a date available until. All other required fields are filled in.-->
+<tr>
+	<td>type</td>
+	<td>id=item_name</td>
+	<td>${itemName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_description</td>
+	<td>${itemDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_category</td>
+	<td>${itemCategory}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_condition</td>
+	<td>${itemCondition}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_quantity</td>
+	<td>${itemQuantity}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_from</td>
+	<td>${itemAvailableFrom}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_until</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 6: The user should be stopped with an error message-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>Edit Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankAvailableUntilError}</td>
+</tr>
+</tbody></table>
+</body>
+</html>

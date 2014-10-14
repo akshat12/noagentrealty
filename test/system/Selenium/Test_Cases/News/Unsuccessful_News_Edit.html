@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Unsuccessful_News_Create</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Unsuccessful_News_Create</td></tr>
+</thead><tbody>
+<!--Title: Unsuccessful News Edit-->
+<!--Description: Test that a news cannot be edittesuccessfully with blankd  fields-->
+<!---->
+<!--Begin variable creation-->
+<tr>
+	<td>store</td>
+	<td>Test News Edit</td>
+	<td>newsHeadline</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Test that a news can be editted successfully!</td>
+	<td>newsBody</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Title can't be blank</td>
+	<td>blankNameError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Content can't be blank</td>
+	<td>blankDescriptionError</td>
+</tr>
+<!--End variable creation-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!--Test 1: Edit a news with no fields filled in-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=News</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Edit')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=news_title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=news_content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 1: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankNameError}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li[2]</td>
+	<td>${blankDescriptionError}</td>
+</tr>
+<!---->
+<!--Test 2: Edit a news with only a name filled in-->
+<tr>
+	<td>type</td>
+	<td>id=news_title</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=news_content</td>
+	<td>${newsBody}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 2: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankNameError}</td>
+</tr>
+<!---->
+<!--Test 3: Create a new news with only a description filled in-->
+<tr>
+	<td>type</td>
+	<td>id=news_title</td>
+	<td>${newsHeadline}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=news_content</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 3: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${blankDescriptionError}</td>
+</tr>
+</tbody></table>
+</body>
+</html>

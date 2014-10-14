@@ -1,0 +1,33 @@
+<% provide(:title, 'news info') %>
+<div class="row-fluid">
+
+  <div class="span12 top-page">
+    <h1><%= @news.title %></h1>
+    <h2>by <%= User.find(@news.user_id).name %></h2>
+    <p><%= link_to 'Back', news_index_path, class: "btn btn-medium btn-danger", style: "margin:2px 2px 2px 0px;" %></p>
+    </div>
+
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <div class="drop-shadow lifted">
+    <% if @news.image? %>
+    <p><%= image_tag @news.image_url.to_s %></p>
+    <% end %>
+    <p><%= raw @news.content %></p>
+    <p>
+    	<% if signed_in? %>
+ 			<% if current_user?(@news.user) %>
+				<%= link_to 'Edit', edit_news_path(@news), class: "btn btn-medium btn-primary", style: "margin:2px 2px 2px 2px;" %>
+				<%= link_to 'Delete', news_path(@news), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-medium btn-danger", style: "margin:2px 2px 2px 2px;" %>
+ 			<% elsif current_user.admin? %>
+				<%= link_to 'Delete', news_path(@news), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-medium btn-danger", style: "margin:2px 2px 2px 2px;" %>
+ 			<%else%>
+        <%= link_to 'Contact Author', new_user_message_path(User.find(@news.user_id)), class: "btn btn-medium btn-success", style: "margin:2px 2px 2px 2px;" %>
+ 			<% end %>
+		<% end %>
+  	</p>
+  </div>
+  </div>
+</div>

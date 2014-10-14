@@ -1,0 +1,48 @@
+<%#
+# The MIT License
+# Copyright (c) 2012 Michael Hartl
+# http://opensource.org/licenses/mit-license.php
+
+# /*
+#  * ----------------------------------------------------------------------------
+#  * "THE BEER-WARE LICENSE" (Revision 42):
+#  * Michael Hartl wrote this code. As long as you retain this notice you
+#  * can do whatever you want with this stuff. If we meet some day, and you think
+#  * this stuff is worth it, you can buy me a beer in return.
+#  * ----------------------------------------------------------------------------
+#  */
+%>
+
+<% provide(:title, 'Edit User') %>
+<h1>Edit User</h1>
+
+<div class="row">
+	<div class="span6 offset3">
+		
+		<%= form_for(@user) do |f| %>
+		<%= render 'shared/error_messages' %>
+
+		<%= image_tag(@user.image_url) if @user.image? %>
+		<%= f.label :image, "Select a Profile Picture" %>
+		<%= f.file_field :image %>
+		<%= f.hidden_field :image_cache %>
+
+		<%= f.check_box :remove_image if @user.image? %>
+		<%= f.label :remove_image, :style => "display:inline" if @user.image? %>
+
+		<%= f.label :name %>
+		<%= f.text_field :name, :maxlength => 50 %>
+
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+
+		<%= f.label :password, "Confirm Password" %>
+		<%= f.password_field :password %>
+
+		<%= f.submit "Update", class: "btn btn-large btn-success" %>
+
+		<% end %>
+		
+                <%= link_to "Back", current_user %>
+	</div>
+</div>

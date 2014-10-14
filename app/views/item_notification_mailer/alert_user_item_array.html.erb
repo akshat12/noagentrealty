@@ -1,0 +1,13 @@
+<p>Hello <%= @user.name %>!<p>
+
+<p>A new item has been found to match one of your wish list items. </p>
+<p>Here are the links to the items:</p>
+
+<p>
+	<% @item.each do |item| %>
+    <li>
+      <%= link_to item.name, item_url(item, :host => "cfz.herokuapp.com") %>
+    </li>
+  <% end %>
+</p>
+

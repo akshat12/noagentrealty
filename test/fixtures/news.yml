@@ -1,0 +1,6 @@
+news_test1:
+  title: Admin generated news article
+  content: delete me
+  image: test.png
+  user: search_user2
+  

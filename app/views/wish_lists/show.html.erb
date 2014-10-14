@@ -1,0 +1,68 @@
+<% provide(:title, 'Wish List Item Info') %>
+<div class="row-fluid">
+
+	<div class="span12 top-page">
+		<h1>Wish List Item Info</h1>
+		<div>
+			<%= link_to 'Back', wish_lists_path, class: "btn btn-medium btn-danger", style: "margin:2px 2px 2px 0px;" %>
+		</div>
+	</div>
+
+</div>
+
+<div class="row-fluid">
+	<div class="span12">
+		<div class="drop-shadow lifted">
+			<%= link_to 'Edit', edit_wish_list_path(@wish_list), class: "btn btn-medium btn-primary pull-right", style: "margin:0px 2px 2px 2px;" %>
+
+			<% if @wish_list.name? %>
+			<h2>Item Name: <%= @wish_list.name %></h2>
+			<% end %>
+
+			<% if @wish_list.description? %>
+			<h3>Description: <%= @wish_list.description %></h3>
+			<% end %>
+
+			<% if @wish_list.category? %>
+			<h3>Category: <%= @wish_list.category %></h3>
+			<% end %>
+
+			<% if @wish_list.condition? %>
+			<h3>Condition: <%= @wish_list.condition %></h3>
+			<% end %>
+			
+			<% if @wish_list.quantity? %>
+			<h3>Quantity: <%= @wish_list.quantity %></h3>
+			<% end %>
+
+			<% if @wish_list.price? %>
+			<h3>Price: <%= number_to_currency(@wish_list.price) %></h3>
+			<% end %>
+
+			<% if @wish_list.length? %>
+			<h3>Length: <%= number_to_human(@wish_list.length, :precision => 4, :units => {:unit => "m"}) %></h3>
+			<% end %>
+
+			<% if @wish_list.width? %>
+			<h3>Width: <%= number_to_human(@wish_list.width, :precision => 4, :units => {:unit => "m"}) %></h3>
+			<% end %>
+
+			<% if @wish_list.height? %>
+			<h3>Height: <%= number_to_human(@wish_list.height, :precision => 4, :units => {:unit => "m"}) %></h3>
+			<% end %>
+
+			<% if @wish_list.weight? %>
+			<h3>Weight: <%= number_to_human(@wish_list.weight, :precision => 4, :units => {:unit => "kg"}) %></h3>
+			<% end %>
+
+			<% if @wish_list.location? %>
+			<h3>Near: <%= @wish_list.location %></h3>
+			<% end %>
+
+			<% if @wish_list.available_until? %>
+			<h3>Date Required By: <%= @wish_list.available_until %></h3>
+			<% end %>
+
+		</div>
+	</div>
+</div>

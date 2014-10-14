@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Negative-Invalid_Email</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Negative-Invalid_Email</td></tr>
+</thead><tbody>
+<!--Title: Negative Invalid Email-->
+<!--Description: Tests to see that creating an account with an invalid email cannot be done-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!--Begin variable storage-->
+<tr>
+	<td>store</td>
+	<td>Test</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Test</td>
+	<td>invalidEmail</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Test@something</td>
+	<td>invalidEmail2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>randomtest@mailinator.com</td>
+	<td>invalidEmail3</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>test123</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Email is invalid</td>
+	<td>invalidEmailError</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Sorry that email already exists, please try another.</td>
+	<td>emailAlreadyExistError</td>
+</tr>
+<!--End variable storage-->
+<!--Test 1: Open account creation page and enter in everything. For email. don't eenter in an @ sign-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign Up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_name</td>
+	<td>${username}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_email</td>
+	<td>${invalidEmail}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password_confirmation</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 1: The user should fail account creation with an error message describing the fact that the email is invalid-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${invalidEmailError}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;span12 top-page&quot;]/h1</td>
+	<td>Welcome</td>
+</tr>
+<!---->
+<!--Test 2: Now for email, don't enter in a domain name-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign Up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_name</td>
+	<td>${username}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_email</td>
+	<td>${invalidEmail2}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password_confirmation</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 2: The user should fail account creation with an error message describing the fact that the email is invalid-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${invalidEmailError}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;span12 top-page&quot;]/h1</td>
+	<td>Welcome</td>
+</tr>
+<!---->
+<!--Test 3: Now for email, enter in an email that exists in the data base-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign Up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_name</td>
+	<td>${username}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_email</td>
+	<td>${invalidEmail3}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=user_password_confirmation</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 3: The user should fail account creation with an error message describing the fact that the email is invalid-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class=&quot;alert alert-notice&quot;]</td>
+	<td>${emailAlreadyExistError}</td>
+</tr>
+<!---->
+</tbody></table>
+</body>
+</html>

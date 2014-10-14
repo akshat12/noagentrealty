@@ -1,0 +1,12 @@
+project_test1:
+  name: Admin generated gallery project
+  description: delete me
+  image: test.png
+  user: search_user1
+  
+project_test2:
+  name: birdhouse
+  description: i love birds
+  image: test.png
+  user: search_user2
+  

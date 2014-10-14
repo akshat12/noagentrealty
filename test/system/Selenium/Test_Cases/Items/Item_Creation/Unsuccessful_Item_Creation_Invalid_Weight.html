@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Unsuccessful_Item_Creation_Invalid_Weight</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Unsuccessful_Item_Creation_Invalid_Weight</td></tr>
+</thead><tbody>
+<!--Title: Unsucessful_Item_Creation_Invalid_Weight-->
+<!--Description: Create a new item with an invalid weight-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!---->
+<!--Variable Declaration-->
+<tr>
+	<td>store</td>
+	<td>Wires</td>
+	<td>itemName</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Cheap and good condition wires.</td>
+	<td>itemDescription</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Electrical</td>
+	<td>itemCategory</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Like New</td>
+	<td>itemCondition</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2</td>
+	<td>itemQuantity</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>-8.5</td>
+	<td>invalidItemWeight</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2035-05-01</td>
+	<td>itemAvailableFrom</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2035-06-01</td>
+	<td>itemAvailableUntil</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Item was successfully created.</td>
+	<td>itemCreateSuccessfullyMessage</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Weight must be greater than 0</td>
+	<td>negativeWeightError</td>
+</tr>
+<!--End Variable Declaraion-->
+<!---->
+<!--Test 1: Create a new item with a negative weight-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add Item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_name</td>
+	<td>${itemName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_description</td>
+	<td>${itemDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_category</td>
+	<td>${itemCategory}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=item_condition</td>
+	<td>${itemCondition}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_quantity</td>
+	<td>${itemQuantity}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_weight</td>
+	<td>${invalidItemWeight}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_from</td>
+	<td>${itemAvailableFrom}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_available_until</td>
+	<td>${itemAvailableUntil}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 1: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${negativeWeightError}</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

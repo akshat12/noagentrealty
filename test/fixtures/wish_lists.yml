@@ -1,0 +1,50 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+wish_list_test_one:
+  name: Electrical Circuits
+  category: Circuits
+  description: Any electrical circuits that are working
+  location: Vancouver
+  condition: Like new
+  quantity: 1
+  weight: 10
+  length: 5
+  width: 5
+  height: 5
+  price: 10.0
+  user: search_user1
+  available_until: 2020-05-11
+
+
+notifications_wl_one:
+  name: Bricks
+  category: Housing
+  description: A set of bricks that can be used to build a house and is able to resist a wolf's breath.
+  location: Burnaby
+  condition: Good
+  quantity: 500
+  weight: 
+  length:
+  width:
+  height:
+  price: 40.0
+  user: notification_user1
+  available_until: 2020-05-11
+
+  
+notifications_wl_two:
+  name: Some Bricks
+  category: Housing
+  description: I need a set of bricks that are able to resist a wolf's breath.
+  location: Richmond
+  condition: Like New
+  quantity: 1000
+  weight: 100
+  length: 
+  width:
+  height:
+  price: 20
+  user: notification_user2
+  available_until: 2020-05-11
+
+

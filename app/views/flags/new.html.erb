@@ -1,0 +1,24 @@
+<h1>Flag Item</h1>
+
+<%= form_for [@flaggable, Flag.new] do |f| %>
+<%= render 'shared/flag_error_messages' %>
+<div class ="row-fluid">
+	<div class="span12 drop-shadow lifted contactform">
+		<div class ="row-fluid">
+			<div class="field">
+				<%= f.label :reason %>
+				<%= f.select :reason, flag_reasons %>
+			</div>
+			<div class="field">
+				<%= f.label :comment %>
+				<%= f.text_area :comment %>
+			</div>
+			
+			<div class="actions">
+			<%= f.submit "Submit",:class => "btn btn-medium btn-success" %>
+			<%= link_to "Back", @flaggable,:class => "btn btn-medium btn-danger" %>
+		</div>
+		</div>
+	</div>
+</div>
+<% end %>

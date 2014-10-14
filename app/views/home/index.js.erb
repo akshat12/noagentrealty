@@ -1,0 +1,2 @@
+var $boxes = $("<div class='page'><%= escape_javascript(render(:partial => 'item', :collection => @items)) %></div>");
+$("#masonry-container").append( $boxes ).masonry( 'appended', $boxes,true );

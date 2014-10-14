@@ -1,0 +1,19 @@
+<p>Hello <%= @user.name %>,</p>
+
+<p>A user has submitted a flag:</p>
+
+<p>Type: <%= @flag.flaggable_type %></p>
+<p>Reason: <%= @flag.reason %></p>
+<p>Comment: <%= @flag.comment %></p>
+
+<% if @flag.flaggable_type == 'User' %>
+	<p>Link: <%= link_to "View", user_url(@flaggable) %></p>
+<% elsif @flag.flaggable_type == 'Event' %>
+	<p>Link: <%= link_to "View", event_url(@flaggable) %></p>
+<% elsif @flag.flaggable_type == 'Item' %>
+	<p>Link: <%= link_to "View", item_url(@flaggable) %></p>
+<% elsif @flag.flaggable_type == 'Project' %>
+	<p>Link: <%= link_to "View", project_url(@flaggable) %></p>
+<% else %>
+<% end %>
+

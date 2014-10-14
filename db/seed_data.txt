@@ -1,0 +1,10 @@
+Marble Blocks|Flooring|Big cubed blocks of marble, great for any construction project.|48|Excellent|0.2|0.2|0.2|60|12.00|North Vancouver|marble.jpg
+Steel Screws|Architectural|The BEST screws money can buy. Only slightly used.|78|Excellent||||||Whistler|screws.jpg
+Wooden Boards|Lumber|Want wood? We've got you covered! These boards can be used for almost anything your creative mind can fathom. Makeshift skateboard? Children's toy? Go wild!|16|Excellent|2|0.1|4||17.00|West Vancouver|wood.jpg
+Carpeting|Flooring|Beautiful pink and purple shades of carpeting.|8|Like New||||||Burnaby|fabric.jpg
+Nails|Appliances|That's right, the nails everybody has been clamouring for are here! Get yours today. Alright so I also want to test what happens when I have a lot of text in a description, so I'm going to write some really long sentences here and see what happens to the grid of items. Woohoo!|110|Rough|||||18.00|University of British Columbia|nails.jpg
+Shingles|Masonry, Tile & Stone|Shingle all the way!|200|Rough||||||Richmond|shingles.jpg
+Stones|Other|Get your nice shiny rocks here!|145|Fair||||||White Rock, BC|stones.jpg
+Tire|Other|Need a spare?|1|Excellent|||||40.00|Canadian Tire|tire.jpg
+Bricks|Masonry, Tile & Stone|Got brick?|100|Good||||||New Westminster|bricks.jpg
+Water Drain|Architectural|Pipe in great condition, still works well for draining water off buildings.|1|Excellent||||||Richmond|water-drain.jpg

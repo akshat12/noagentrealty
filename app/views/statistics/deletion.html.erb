@@ -1,0 +1,15 @@
+
+    <h1>Why did you delete this item?</h1>
+    <h2>Help us learn about where Deco Hub items end up.</h2>
+    <%= form_tag deletion_results_path(:id => params[:id]), :method => :put do %>
+    <div class ="row-fluid">
+    <div class="span12 drop-shadow lifted">
+      <div class ="row-fluid">
+        <label>Reason</label>
+        <%= select_tag :reason, options_for_select(deletion_reasons) %>
+        <div><%= submit_tag "Submit", class: "btn btn-medium btn-success"%>
+        <%= submit_tag "Cancel", class: "btn btn-medium btn-danger"%></div>
+      </div>
+    </div>
+  </div>
+    <% end%>

@@ -1,0 +1,8 @@
+Hello <%= @user.name %>!
+
+A new item has been found to match one of your wish list items. 
+Here is the link to the item:
+<!-- cfz.herokuapp.com -->
+<!-- localhost:3000 -->
+
+<%= link_to @item.name, item_url(@item, :host => "cfz.herokuapp.com") %>

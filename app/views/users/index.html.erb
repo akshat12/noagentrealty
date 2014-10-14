@@ -1,0 +1,37 @@
+<h1>All Users</h1>
+
+<div class="row-fluid">
+<% @users.each do |user| %>
+  <div class="span4">
+    <div class="drop-shadow lifted">
+
+        <% if user.image? %>
+        <div style="width:33%;display:inline-block;">
+          <%= image_tag user.image_url.to_s if user.image? %>
+        </div>
+        <% else %>
+        <div style="width:33%;display:inline-block;">
+          <%= image_tag image_path("avatar-placeholder.jpg") %>
+        </div>
+        <% end %>
+
+        <div style="display:inline-block; vertical-align:top;">
+        <h4><%= link_to user.name, user %></h4>
+
+        <% if !current_user?(user) %>
+        <%= link_to 'Contact', new_user_message_path(user),class: "btn btn-small btn-primary" %>
+        <% end %>
+        <%= link_to 'Show', user,class: "btn btn-small btn-success" %><br /><br />
+        <% if current_user.admin? && !current_user?(user) %>
+          <% if user.banned %>
+              <%= link_to 'Reactivate', url_for(:controller => 'admin', :action => 'ban_user', :user => user, :ban => false), method: :put, data: { confirm: 'Are you sure?'}, class: "btn btn-small btn-warning" %>
+          <% else %>
+              <%= link_to 'Ban', url_for(:controller => 'admin', :action => 'ban_user', :user => user, :ban => true), method: :put, data: { confirm: 'Are you sure?'}, class: "btn btn-small btn-warning" %>
+          <% end %>
+          <%= link_to 'Delete', user_path(user), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-small btn-danger"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>

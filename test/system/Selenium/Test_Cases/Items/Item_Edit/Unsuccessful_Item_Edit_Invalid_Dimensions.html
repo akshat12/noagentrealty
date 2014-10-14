@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Unsuccessful_Item_Creation_Invalid_Dimensions</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Unsuccessful_Item_Creation_Invalid_Dimensions</td></tr>
+</thead><tbody>
+<!--Title: Unsucessful_Item_Edit_Invalid_Dimensions-->
+<!--Description: Edit a new item with an invalid dimensions-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!--Variable Declaration-->
+<tr>
+	<td>store</td>
+	<td>-5</td>
+	<td>invalidItemLength</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>-1.9</td>
+	<td>invalidItemWidth</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>-1.5</td>
+	<td>invalidItemHeight</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2</td>
+	<td>validItemLength</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>3.5</td>
+	<td>validItemWidth</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>9.9</td>
+	<td>validItemHeight</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Length must be greater than 0</td>
+	<td>invalidItemLengthMessage</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Width must be greater than 0</td>
+	<td>invalidItemWidthMessage</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Height must be greater than 0</td>
+	<td>invalidItemHeightMessage</td>
+</tr>
+<!--End Variable Declaraion-->
+<!---->
+<!--Setup: Find the created item from the previous tests and edit it-->
+<tr>
+	<td>click</td>
+	<td>link=Items</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Electrical</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Details')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Edit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Test 1: Edit the item with just a negative length-->
+<tr>
+	<td>type</td>
+	<td>id=item_length</td>
+	<td>${invalidItemLength}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_width</td>
+	<td>${validItemWidth}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_height</td>
+	<td>${validItemHeight}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 1: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${invalidItemLengthMessage}</td>
+</tr>
+<!---->
+<!--Test 2: Edit the item with just a negative width-->
+<tr>
+	<td>type</td>
+	<td>id=item_length</td>
+	<td>${validItemLength}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_width</td>
+	<td>${invalidItemWidth}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_height</td>
+	<td>${validItemHeight}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 2: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${invalidItemWidthMessage}</td>
+</tr>
+<!--Test 3: Edit the item with just a negative height-->
+<tr>
+	<td>type</td>
+	<td>id=item_length</td>
+	<td>${validItemLength}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_width</td>
+	<td>${validItemWidth}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_height</td>
+	<td>${invalidItemHeight}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 3: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${invalidItemHeightMessage}</td>
+</tr>
+<!---->
+<!--Test 4: Edit the item with just all negative values-->
+<tr>
+	<td>type</td>
+	<td>id=item_length</td>
+	<td>${invalidItemLength}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_width</td>
+	<td>${invalidItemWidth}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=item_height</td>
+	<td>${invalidItemHeight}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 4: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${invalidItemLengthMessage}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li[2]</td>
+	<td>${invalidItemWidthMessage}</td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li[3]</td>
+	<td>${invalidItemHeightMessage}</td>
+</tr>
+</tbody></table>
+</body>
+</html>

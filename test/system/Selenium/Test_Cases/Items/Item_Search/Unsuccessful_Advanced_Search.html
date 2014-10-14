@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Unsuccessful_Advanced_Search</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Unsuccessful_Advanced_Search</td></tr>
+</thead><tbody>
+<!--Title: Unsuccessful_Advanced_Search-->
+<!--Description: Tests that an item that does not exist in the database cannot be searched for-->
+<!---->
+<!--Begin variable declaration-->
+<tr>
+	<td>store</td>
+	<td>Marble</td>
+	<td>searchName</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>marble</td>
+	<td>searchDescription</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Flooring</td>
+	<td>searchCategory</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Like New</td>
+	<td>searchCondition</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>10</td>
+	<td>searchQuantity</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2013-04-28</td>
+	<td>searchDate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>0.2</td>
+	<td>searchLength</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>0.2</td>
+	<td>searchWidth</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>0.2</td>
+	<td>searchHeight</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>50</td>
+	<td>searchWeight</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>12</td>
+	<td>searchPrice</td>
+</tr>
+<!--End variable declaration-->
+<!---->
+<!--Test 1: Search for an item that exists in the database using advanced search-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Advanced</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=name</td>
+	<td>${searchName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=description</td>
+	<td>${searchDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=category</td>
+	<td>${searchCategory}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=quantity</td>
+	<td>${searchQuantity}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=condition</td>
+	<td>${searchCondition}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=weight</td>
+	<td>${searchWeight}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=price</td>
+	<td>${searchPrice}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=from</td>
+	<td>${searchDate}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 1: The item should show up successfully on the search list-->
+<tr>
+	<td>assertTextPresent</td>
+	<td>No Results found</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

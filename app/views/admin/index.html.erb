@@ -1,0 +1,121 @@
+<% provide(:title, 'dashboard') %>
+<div class="row-fluid">
+
+  <div class="span12 top-page">
+    <h1>Admin Dashboard</h1>
+  </div>
+
+</div>
+
+<div class="masthead">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="background-position:right top;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target="#admin">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <%= image_tag 'decohub-logo-admin.png', class: "brand" %>
+        <div id="admin" class="nav-collapse">
+        <ul class="nav">
+          <li class="active"><%= link_to "Priority Flags", admin_index_path %></li>
+          <li><%= link_to 'Flagged Events', flagged_events_admin_index_path %> </li>
+          <li><%= link_to 'Flagged Items', flagged_items_admin_index_path%></li>
+          <li><%= link_to 'Flagged Projects', flagged_projects_admin_index_path%></li>
+          <li><%= link_to 'Flagged Users', flagged_users_admin_index_path%></li>
+          <li><%= link_to 'Banned Users', banned_users_admin_index_path %></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h2> Flagged Users </h2>
+<table class = "table table-striped">
+  <thead>
+    <th width="66%">User</th>
+    <th># of Flags</th>
+  </thead>
+
+<% @flagged_users.each do |u| %>
+  <tr>
+    <td><%= link_to u['user'].name, u['user'] %></td>
+    <td><%= link_to u['count'], user_flags_path(u['user']) %></td>
+  </tr>
+<% end %>
+
+</table>
+
+<h2> Flagged Items </h2>
+<table class = "table table-striped">
+  <thead>
+    <th width="66%">Item</th>
+    <th># of Flags</th>
+  </thead>
+
+<% @flagged_items.each do |i| %>
+  <tr>
+    <td><%= link_to i['item'].name, i['item'] %></td>
+    <td><%= link_to i['count'], item_flags_path(i['item']) %></td>
+  </tr>
+<% end %>
+
+</table>
+
+<h2> Flagged Events </h2>
+<table class = "table table-striped">
+  <thead>
+    <th width="66%">Event</th>
+    <th># of Flags</th>
+  </thead>
+
+<% @flagged_events.each do |e| %>
+  <tr>
+    <td><%= link_to e['event'].name, e['event'] %></td>
+    <td><%= link_to e['count'], event_flags_path(e['event']) %></td>
+  </tr>
+<% end %>
+
+</table>
+
+<h2> Flagged Projects </h2>
+<table class = "table table-striped">
+  <thead>
+    <th width="66%">Project</th>
+    <th># of Flags</th>
+  </thead>
+
+<% @flagged_projects.each do |p| %>
+  <tr>
+    <td><%= link_to p['project'].name, p['project'] %></td>
+    <td><%= link_to p['count'], project_flags_path(p['project']) %></td>
+  </tr>
+<% end %>
+
+</table>
+
+<%= form_for @preference, :url => { :controller => "admin", :action => "update_preferences", :id => @preference.id } do |f| %>
+  <div>
+    <%= check_box "preference", "preference_value" %>
+    <%= label_tag(:value, "Notify me by e-mail when a flag is submitted.", :style => "display:inline") %>
+  </div><br />
+
+  <div class="actions"><%= f.submit "Update Preferences",:class => "btn btn-large btn-success" %></div>
+<% end %>
+
+<h2> Statistics </h2>
+<div class="row">
+<div class="span4">
+  <h3>Items</h3>
+  <%= link_to "Download CSV", items_path(format: "csv"), :class => "btn btn-medium btn-primary", style: "margin:8px 4px 8px 4px;" %>
+  <%= link_to "Download XLS", items_path(format: "xls"), :class => "btn btn-medium btn-primary", style: "margin:8px 4px 8px 4px;" %>
+</div>
+<div class="span4">
+  <h3>Deleted Items</h3>
+  <%= link_to "Download CSV", old_items_path(format: "csv"), :class => "btn btn-medium btn-danger", style: "margin:8px 4px 8px 4px;" %>
+  <%= link_to "Download XLS", old_items_path(format: "xls"), :class => "btn btn-medium btn-danger", style: "margin:8px 4px 8px 4px;" %>
+</div>
+</div>

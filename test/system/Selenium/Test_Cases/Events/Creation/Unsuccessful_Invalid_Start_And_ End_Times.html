@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Unsuccessful_Invalid_Start_Time</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Unsuccessful_Invalid_Start_Time</td></tr>
+</thead><tbody>
+<!--Title: Unsuccessful_Invalid_Start_And_End_Times-->
+<!--Description: Tests that an event cannot be created with an invalid start and end time-->
+<!---->
+<!--Begin variable declaration-->
+<tr>
+	<td>store</td>
+	<td>Test Event</td>
+	<td>eventName</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Tests that events actually works!</td>
+	<td>eventDescription</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2050-01-01</td>
+	<td>eventDate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>06</td>
+	<td>eventStartHour1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>45</td>
+	<td>eventStartMinute1</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>06</td>
+	<td>eventStartHour2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>30</td>
+	<td>eventStartMinute2</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>06</td>
+	<td>eventEndHour</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>30</td>
+	<td>eventEndMinute</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>End time must be after start time</td>
+	<td>eventEndTimeAfterStart</td>
+</tr>
+<!--End variable declaration-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!---->
+<!--Test 1: Click on the event link and create a new event. Enter in a start time that is after the end time.-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Events</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Create New Event</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_name</td>
+	<td>${eventName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_description</td>
+	<td>${eventDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_event_date</td>
+	<td>${eventDate}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=event_start_time_4i</td>
+	<td>${eventStartHour1}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_start_time_5i</td>
+	<td>${eventStartMinute1}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=event_end_time_4i</td>
+	<td>${eventEndHour}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_end_time_5i</td>
+	<td>${eventEndMinute}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 1: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${eventEndTimeAfterStart}</td>
+</tr>
+<!---->
+<!--Test 2: Attempt to create a new event with starting time exactly the same as the end time-->
+<tr>
+	<td>select</td>
+	<td>id=event_start_time_4i</td>
+	<td>${eventStartHour2}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_start_time_5i</td>
+	<td>${eventStartMinute2}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 2: The user should be stopped with an error message-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${eventEndTimeAfterStart}</td>
+</tr>
+</tbody></table>
+</body>
+</html>

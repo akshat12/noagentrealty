@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Delete_Flagged_Item</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Delete_Flagged_Item</td></tr>
+</thead><tbody>
+<!--Title: Delete Flagged Item-->
+<!--Description: Tests to see that an admin is able to delete a flagged item-->
+<!---->
+<!--Variables Storage:-->
+<tr>
+	<td>store</td>
+	<td>Wires</td>
+	<td>flaggedItem</td>
+</tr>
+<!--End variable storage-->
+<!---->
+<!--Test 1: Go to the admin dashboard and delete a flagged item-->
+<tr>
+	<td>click</td>
+	<td>link=Test Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin Dashboard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Flagged Items</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=${flaggedItem}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Delete</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Test Admin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Admin Dashboard</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 1: The item should no longer show up-->
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>${flaggedItem}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

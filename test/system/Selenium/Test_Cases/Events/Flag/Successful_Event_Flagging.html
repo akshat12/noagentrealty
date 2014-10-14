@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://cfz.herokuapp.com/" />
+<title>Successful_Item_Flagging</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Successful_Item_Flagging</td></tr>
+</thead><tbody>
+<!--Title: Successful Event Flagging-->
+<!--Description: Tests that an event can be flagged successfully-->
+<!---->
+<!--Open the page-->
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<!--Declare variables-->
+<tr>
+	<td>store</td>
+	<td>Test Event</td>
+	<td>eventName</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Tests that events actually works!</td>
+	<td>eventDescription</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>2050-01-01</td>
+	<td>eventDate</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>06</td>
+	<td>eventStartHour</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>15</td>
+	<td>eventStartMinute</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>06</td>
+	<td>eventEndHour</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>30</td>
+	<td>eventEndMinute</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>newtester@mailinator.com</td>
+	<td>email</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>test123</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Spamming</td>
+	<td>flagReason</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>This person is spamming me!</td>
+	<td>flagComment</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Report was successfully submitted.</td>
+	<td>successfulFlagComment</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>Flaggable has already been taken</td>
+	<td>flagAgainError</td>
+</tr>
+<!--End variable creation-->
+<!---->
+<!--Test 1: Create an event. Log off and then log in as a new user. Then flag the post and fill in all values-->
+<!--Create the event-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Events</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Create New Event</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_name</td>
+	<td>${eventName}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_description</td>
+	<td>${eventDescription}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_event_date</td>
+	<td>${eventDate}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=event_start_time_4i</td>
+	<td>${eventStartHour}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_start_time_5i</td>
+	<td>${eventStartMinute}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=event_end_time_4i</td>
+	<td>${eventEndHour}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=event_end_time_5i</td>
+	<td>${eventEndMinute}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Log out-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign Out</td>
+	<td></td>
+</tr>
+<!--Log in as new user-->
+<tr>
+	<td>clickAndWait</td>
+	<td>class=signin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=session_email</td>
+	<td>${email}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=session_password</td>
+	<td>${password}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Navigate to event flagging-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Events</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Show')])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Flag</td>
+	<td></td>
+</tr>
+<!--Flag the event-->
+<tr>
+	<td>select</td>
+	<td>id=flag_reason</td>
+	<td>${flagReason}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=flag_comment</td>
+	<td>${flagComment}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!--Assertion 2: The event should be successfully flagged-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-notice&quot;]</td>
+	<td>${successfulFlagComment}</td>
+</tr>
+<!---->
+<!--Test 2: Flag the event again-->
+<!--Navigate to item flagging-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Events</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//a[contains(text(),'Show')])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Flag</td>
+	<td></td>
+</tr>
+<!--Flag the event-->
+<tr>
+	<td>select</td>
+	<td>id=flag_reason</td>
+	<td>${flagReason}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=flag_comment</td>
+	<td>${flagComment}</td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<!---->
+<!--Assertion 2: The flag should not be submitted again-->
+<tr>
+	<td>assertText</td>
+	<td>//div[@class= &quot;alert alert-error&quot;]/ul/li</td>
+	<td>${flagAgainError}</td>
+</tr>
+<!---->
+<!--Log out-->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign Out</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

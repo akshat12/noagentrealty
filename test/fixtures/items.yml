@@ -1,0 +1,143 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+search_test1:
+  name: Office chair
+  category: Furniture
+  description: spinny chair with adjustable height
+  user: search_user1
+  image:
+  quantity: 1
+  condition: Good
+  length: 
+  width: 
+  height: 
+  price: 15.0
+  available_until: 2015-06-11
+  available_from: 2013-04-01
+  weight: 
+
+search_test2:
+  name: Wooden Chairs
+  category: Furniture
+  description: plain
+  user: search_user2
+  image:
+  quantity: 4
+  condition: Fair
+  length: 
+  width: 
+  height: 
+  price: 
+  available_until: 2013-05-02
+  available_from: 2013-04-01
+  weight: 14
+
+search_test3:
+  name: telephone cable
+  category: Masonry, Tile & Stone
+  description: fibre optic cable from beneth my floor
+  user: search_user2
+  image:
+  quantity: 1
+  condition: Good
+  length: 30.0
+  width: 
+  height: 
+  price: 4.0
+  available_until: 2013-04-09
+  available_from: 2013-03-07
+  weight:  
+
+search_test4:
+  name: Floor Boards
+  category: Lumber
+  description: wooden, maybe oak. Just need to ake them off stone foundation
+  user: search_user1
+  image:
+  quantity: 20
+  condition: Excellent
+  length: 10.0
+  width: 3.0
+  height: 1.0
+  price: 35.0
+  available_until: 2013-09-11
+  available_from: 2013-02-21
+  weight: 10.0 
+
+
+test_required:
+  name: Sierra
+  category: other
+  description: required
+  user: search_user1
+  quantity: 15
+  condition: rough
+  available_until: 2014-05-23
+  available_from: 2013-05-24
+  
+test_all:
+  name: Sierra
+  category: other
+  description: required
+  user: search_user1
+  quantity: 15
+  condition: rough
+  available_until: 2014-05-23
+  available_from: 2013-05-24
+  length: 24
+  width: 36
+  height: 19
+  price: 50
+  weight: 50
+  
+notifications_item_test1:
+  name: Wooden Planks
+  category: Lumber
+  description: Fine oak wooden planks that can be used to build a house. They are however not very wind resistant.
+  user: notification_user3
+  image:
+  quantity: 50
+  condition: Excellent
+  length:
+  width:
+  height:
+  price: 75.0
+  available_until: 2013-09-11
+  available_from: 2013-03-08
+  weight: 10.0 
+  
+notifications_item_test2:
+  name: Bricks
+  category: Housing
+  description: Resist a wolf's breath.
+  user: notification_user3
+  image:
+  quantity: 750
+  condition: Excellent
+  length:
+  width:
+  height:
+  price: 30.0
+  available_until: 2020-05-11
+  available_from: 2017-03-01
+  weight:
+      
+notifications_item_test3:
+  name: Bricks
+  category: Housing
+  description: Resist a wolf's breath.
+  user: notification_user3
+  image:
+  quantity: 1500
+  condition: Like New
+  length:
+  width:
+  height:
+  price: 10.0
+  available_until: 2020-05-11
+  available_from: 2017-03-01
+  weight:
+
+

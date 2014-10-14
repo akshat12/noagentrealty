@@ -1,0 +1,18 @@
+test_event1:
+  name: party
+  description: 19+
+  user: search_user1
+  image:
+  event_date: 2013-04-05
+  start_time: 06:00:00
+  end_time: 
+  
+test_event2:
+  name: hi
+  description: desc
+  user: search_user2
+  image:
+  event_date: 2013-04-09
+  start_time: 08:00:00
+  end_time: 
+  

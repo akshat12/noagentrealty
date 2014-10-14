@@ -1,0 +1,90 @@
+<% provide(:title, 'item search') %>
+
+<div class="row-fluid">
+
+  <div class="span12 top-page">
+    <h1>Advanced Search</h1>
+  </div>
+
+</div>
+
+<div class="row-fluid">
+
+  <div class="span5">
+
+    <h2>Find items with...</h2>
+
+    <%= form_tag search_results_path do %>
+    <div class = "field">
+      <label>these words in their <i>title</i></label>
+      <%= text_field_tag :name, params[:name] %>
+    </div>
+
+    <div class = "field">
+        <label>these words in their <i>description</i></label>
+        <%= text_field_tag :description, params[:description] %>
+      </div>
+
+    <h2>I need it...</h2>    
+    <div class = "field">      
+        <label>at this location</label>
+        <%= text_field_tag :location, params[:location] %>
+      </div>
+
+    <div class = "field input-medium">
+        <label>by this date</label>
+        <%= text_field_tag :from, params[:from], :value => Date.today %>
+      </div>
+
+    <h2>Show me results...</h2>
+    <label>ordered by</label> 
+        <%= select_tag :sort, options_for_select([["Recently Available"],["Expiring Soon"],["Item Name"],["User Name"]]) %>
+
+  </div>
+
+  <div class="span5 offset1">
+
+    <h2>Narrow your search by...</h2>
+
+    <div class = "field">
+      <label>category<label>
+        <%= select_tag :category, options_for_select(search_categories) %>
+      </div>
+
+      <div class = "field input-medium">
+        <label>quantity</label>
+        <%= number_field_tag :quantity, params[:quantity], :min => 0,:max => 100000 %>
+      </div>
+
+      <div class = "field">
+        <label>condition</label>
+        <%= select_tag :condition, options_for_select(search_conditions) %>
+      </div>
+
+      <div class = "field input-medium">
+        <label>weight (kg)</label>
+        <%= number_field_tag :weight, params[:weight], :step => "0.1", :min => 0,:max => 100000 %>
+      </div>
+
+      <div class = "field input-medium">
+        <label>max price ($)</label>
+        <%= number_field_tag :price, params[:price], :step => "0.1", :min => 0,:max => 100000 %>
+      </div>
+
+    </div>
+  </div> 
+
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+	<div class="center">
+    
+      <%= submit_tag "Search",:class => "btn btn-custom" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
