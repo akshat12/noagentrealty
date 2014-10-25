@@ -6,6 +6,7 @@ class AdminController < ApplicationController
   before_filter :admin_user
 
   # GET /admin
+  # random test
   # Display a list of flagged objects grouped by type and sorted in decreasing order based on the number of flags
   def index
 
