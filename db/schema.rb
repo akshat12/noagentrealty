@@ -125,15 +125,15 @@ ActiveRecord::Schema.define(:version => 20130325052132) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "image"
     t.boolean  "admin",                  :default => false
+    t.boolean  "banned",                 :default => false
     t.boolean  "confirmed",              :default => false
     t.string   "confirm_code"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
-    t.string   "image"
-    t.boolean  "banned",                 :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -152,9 +152,9 @@ ActiveRecord::Schema.define(:version => 20130325052132) do
     t.decimal  "height"
     t.decimal  "price"
     t.decimal  "weight"
+    t.date     "available_until"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.date     "available_until"
   end
 
   add_index "wish_lists", ["user_id"], :name => "index_wish_lists_on_user_id"

@@ -1,5 +1,5 @@
 class ItemNotificationMailer < ActionMailer::Base
-  default from: "caffeine.zombies@gmail.com"
+  default from: "noagentprops@gmail.com"
 	# Sends an email to the user of the wish list if the system finds a match between a wish list item and a item
 	def alert_user(item, wish_list)
 		@item = item

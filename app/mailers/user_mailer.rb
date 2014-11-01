@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "caffeine.zombies@gmail.com"
+  default from: "noagentprops@gmail.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
   #
   def reg_confirmation(user)
    @user = user
-   mail(:to => user.email, :subject => "DecoHub - Account Registration Confirmation")
+   mail(:to => user.email, :subject => "NoAgentRealty - Account Registration Confirmation")
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -18,7 +18,7 @@ class UserMailer < ActionMailer::Base
   #
   def password_reset(user)
     @user = user
-    mail(:to => user.email, :subject => "DecoHub - Password Reset Instructions")
+    mail(:to => user.email, :subject => "NoAgentRealty - Password Reset Instructions")
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -29,7 +29,7 @@ class UserMailer < ActionMailer::Base
   def contact_user(user, message)
     @user = user
     @message = message
-    mail(:to => user.email, :reply_to => message.email, :subject => "DecoHub - New Message Notification")
+    mail(:to => user.email, :reply_to => message.email, :subject => "NoAgentRealty - New Message Notification")
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -41,7 +41,7 @@ class UserMailer < ActionMailer::Base
     @user = user
     @flag = flag
     @flaggable = flaggable
-    mail(:to => user.email, :subject => "DecoHub - Flag Notification")
+    mail(:to => user.email, :subject => "NoAgentRealty - Flag Notification")
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -52,6 +52,6 @@ class UserMailer < ActionMailer::Base
   def contact_us(message)
     @message = message
     email_with_name = "#{@message.name} <#{@message.email}>"
-    mail(:to => "caffeine.zombies@gmail.com", :reply_to => email_with_name, :subject => "DecoHub - Contact Us Notification")
+    mail(:to => "noagentprops@gmail.com", :reply_to => email_with_name, :subject => "NoAgentRealty - Contact Us Notification")
   end
 end

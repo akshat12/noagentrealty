@@ -2,10 +2,10 @@ ActionMailer::Base.smtp_settings = {
   :address              => "smtp.gmail.com",
   :port                 => 587,
   :domain               => "gmail.com",
-  :user_name            => "caffeine.zombies",
-  :password             => "CPSC_319",
+  :user_name            => "noagentprops",
+  :password             => "AkshatAnmol",
   :authentication       => "plain",
   :enable_starttls_auto => true
 }
 
-ActionMailer::Base.default_url_options[:host] = "cfz.herokuapp.com"
+ActionMailer::Base.default_url_options[:host] = "guarded-sands-6916.herokuapp.com"
