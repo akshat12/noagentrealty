@@ -24,6 +24,7 @@ body {
 	background-color: #cdcdcd;
 	background-image: url(image_path('solid.png'));
 	background-repeat: repeat;
+	background: #FFF;
 }
 
 #map-canvas { height: 200px; width:100%; }
@@ -414,7 +415,7 @@ a:focus, .navbar .nav > li > a:hover {
 }
 
 .navbar .container {
-	background-image: url(navbar-middlepattern.png);
+	//background-image: url(navbar-middlepattern.png);
 	background-repeat:no-repeat;
 	background-position:center top;
 }
@@ -468,10 +469,11 @@ a:focus, .navbar .nav > li > a:hover {
 
 .navbar-inverse .navbar-inner, .navbar-inner {
 	@include opacity(.94); // layer alpha
-	background-color: #45bf55; // layer fill content
+	//background-color: #45bf55; // layer fill content
 	@include box-shadow(0 2px 4px rgba(0,0,0,.4), inset 0 -1px 1px rgba(255,255,255,.3)); // drop shadow and inner shadow
-	@include background-image(linear-gradient(bottom, #3dae4c 0%, #46bf56 100%)); // gradient overlay
+	//@include background-image(linear-gradient(bottom, #3dae4c 0%, #46bf56 100%)); // gradient overlay
 	border:0;
+	background: #ED2E38;
 }
 
 .navbar-inverse .divider-vertical {
