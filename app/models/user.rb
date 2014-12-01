@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   has_many :preferences, :dependent => :destroy
   has_many :news, :dependent => :destroy
 
-  attr_accessible :name, :email, :curr_password, :password, :password_confirmation, :confirmed, :confirm_code, :image, :image_cache, :remove_image
+  attr_accessible :first_name, :middle_name, :last_name, :email, :curr_password, :password, :password_confirmation, :confirmed, :confirm_code, :image, :image_cache, :remove_image
 
   # For password encryption
   has_secure_password
@@ -46,8 +46,8 @@ class User < ActiveRecord::Base
 
   # Data validation
   validates :first_name,	:presence => true, :obscenity => true, :length => { :maximum => 50 }
-  validates :middle_name,  :presence => true, :obscenity => true, :length => { :maximum => 50 }
-  validates :last_name,  :presence => true, :obscenity => true, :length => { :maximum => 50 }
+  #validates :middle_name,  :presence => true, :obscenity => true, :length => { :maximum => 50 }
+  #validates :last_name,  :presence => true, :obscenity => true, :length => { :maximum => 50 }
   
   # Regular expression to ensure valid email format
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -84,6 +84,6 @@ class User < ActiveRecord::Base
 
     # Sanitize user's name unless the field is blank
     def sanitize_user
-      self.name = Sanitize.clean(self.name).gsub('&amp;','&').gsub('&gt;', '>') unless self.name.blank?
+      self.first_name = Sanitize.clean(self.first_name).gsub('&amp;','&').gsub('&gt;', '>') unless self.first_name.blank?
     end
 end
