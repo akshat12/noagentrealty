@@ -45,7 +45,9 @@ class User < ActiveRecord::Base
   before_save :create_confirm_code
 
   # Data validation
-  validates :name,	:presence => true, :obscenity => true, :length => { :maximum => 50 }
+  validates :first_name,	:presence => true, :obscenity => true, :length => { :maximum => 50 }
+  validates :middle_name,  :presence => true, :obscenity => true, :length => { :maximum => 50 }
+  validates :last_name,  :presence => true, :obscenity => true, :length => { :maximum => 50 }
   
   # Regular expression to ensure valid email format
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

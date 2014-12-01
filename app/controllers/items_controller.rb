@@ -16,21 +16,23 @@ class ItemsController < ApplicationController
   # Display all items
   def index
     # Check if the current user's request contains a category value
-    # Case 1: Category exists
-    if params.has_key?(:category)
+    # Case 1: Category exists. We need to be checking if region exists
+   # if params.has_key?(:category)
       # Find all items that are under the requested category
-      @inventory = Item.where('available_until >= ? AND category = ?',Date.today, params[:category]) 
-      @inventory.sort!{|a,b| a.available_until <=> b.available_until}
+    #  @inventory = RentalProperties.where('available_until >= ? AND category = ?',Date.today, params[:category]) 
+    # @inventory.sort!{|a,b| a.available_until <=> b.available_until}
     # Case 2: Category does not exist 
-  else
+  #else
       # Find all available items
-      @inventory = Item.where('available_until >= ?', Date.today)
-      @inventory.sort!{|a,b| a.available_until <=> b.available_until}
-    end
+      #@inventory = Item.where('available_until >= ?', Date.today)
+      #@inventory.sort!{|a,b| a.available_until <=> b.available_until}
+   # end
+
+   @inventory = RentalProperties.all
 
 	  # Paginate items
-	  @items = @inventory.page(params[:page]).per(9)
-    @csv = Item.order(:id)
+	  @items = Kaminari.paginate_array(@inventory).page(params[:page]).per(9)
+    @csv = RentalProperties.order(:id)
 	  
     respond_to do |format|
       format.js
@@ -50,9 +52,9 @@ end
   # Display a specific item
   def show
     # Find item from DB
-    @item = Item.find(params[:id])
+    @item = RentalProperties.find(params[:id])
     # Get item location
-    @location = @item.location
+    #@location = @item.postal_code
 
     respond_to do |format|
       format.html # show.html.erb
@@ -65,11 +67,11 @@ end
   # New Item
   def new
     # Create a new item
-    @item = Item.new
+    @item = RentalProperties.new
     # Set default values for item attributes
-    @item.location = Location.new
+    #@item.location = Location.new
     @item.available_from = Date.today.strftime("%Y-%m-%d")
-    @item.available_until = (Date.today + 30).strftime("%Y-%m-%d")
+    #@item.available_until = (Date.today + 30).strftime("%Y-%m-%d")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -81,7 +83,7 @@ end
   # Edit Item
   def edit
     # Find item in DB
-    @item = Item.find(params[:id])
+    @item = RentalProperties.find(params[:id])
   end
 
   # POST /items
@@ -91,7 +93,7 @@ end
     # Get current user
     @user = current_user
     # Create the item using the parameters from the user's request
-    @item = @user.items.build(params[:item])
+    @item = @user.RentalProperties.build(params[:item])
 
     respond_to do |format|
       # Save the item to the DB
@@ -116,7 +118,7 @@ end
   # Update Item
   def update
     # Find item in DB
-    @item = Item.find(params[:id])
+    @item = RentalProperties.find(params[:id])
 
     # Update the available_from date if older than today's date
     if (@item.available_from) < Date.today
@@ -144,24 +146,24 @@ end
   # DELETE /items/1.json
   def destroy
     # Find item in DB
-    @item = Item.find(params[:id])
+    @item = RentalProperties.find(params[:id])
 
     # Create copy of item for statistics
-    @olditem = OldItem.new
+    @olditem = OldProperties.new
     @olditem.name = @item.name
     @olditem.description = @item.description
-    @olditem.category = @item.category
-    @olditem.quantity = @item.quantity
-    @olditem.condition = @item.condition
-    @olditem.length = @item.length
-    @olditem.width = @item.width
-    @olditem.height = @item.height
-    @olditem.price = @item.price
-    @olditem.weight = @item.weight
+    @olditem.property_type = @item.property_type
+    @olditem.rent = @item.rent
+    @olditem.number_of_bathrooms = @item.number_of_bathrooms
+    @olditem.number_of_rooms = @item.number_of_rooms
+    @olditem.number_of_study = @item.number_of_study
+    @olditem.lease_duration = @item.lease_duration
+    @olditem.postal_code = @item.postal_code
+    @olditem.user_id = @item.user_id
     @olditem.available_from = @item.available_from
-    @olditem.available_until = @item.available_until
+    @olditem.furnished = @item.furnished
     @olditem.reason = "Not given"
-    
+
     @olditem.save
 
     # Delete the item
@@ -183,10 +185,10 @@ end
   # Display the current user's items
   def myItems
     # Find the current user's items
-    @inventory = Item.where(:user_id => current_user)
+    @inventory = RentalProperties.where(:user_id => current_user)
     @user = current_user    
     
-    @items = @inventory.page(params[:page]).per(9)
+    @items = Kaminari.paginate_array(@inventory).page(params[:page]).per(9)
 
     respond_to do |format|
       format.js
@@ -200,12 +202,12 @@ end
   private
     # Redirect the user to the items index page unless the user owns the requested resource
     def correct_user
-      @item = Item.find(params[:id])
+      @item = RentalProperties.find(params[:id])
       redirect_to(root_path) unless current_user?(@item.user)
     end
     # Redirect the user to the items index page unless the user owns the requested resource or the user is an admin
     def can_destroy
-      @item = Item.find(params[:id])
+      @item = RentalProperties.find(params[:id])
       redirect_to(root_path) unless current_user?(@item.user) || current_user.admin?
     end
 
