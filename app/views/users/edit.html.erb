@@ -30,8 +30,8 @@
 		<%= f.check_box :remove_image if @user.image? %>
 		<%= f.label :remove_image, :style => "display:inline" if @user.image? %>
 
-		<%= f.label :name %>
-		<%= f.text_field :name, :maxlength => 50 %>
+		<%= f.label :first_name %>
+		<%= f.text_field :first_name, :maxlength => 50 %>
 
 		<%= f.label :email %>
 		<%= f.text_field :email %>
