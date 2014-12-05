@@ -1,5 +1,5 @@
 # app/controllers/admin_controller.rb
-
+# testing sourcetree
 class AdminController < ApplicationController
   before_filter :authenticate
   # Check to see if the current request is coming from an admin user
