@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     	# Find all items that are available based on date
       #@inventory = Properties.where("available_from <= ?", cur_day, cur_day)
       # @inventory = RentalProperties.all
-      @inventory = RentalProperties.all
+      @inventory = Item.all
 
       # Paginate items
       @items = Kaminari.paginate_array(@inventory).page(params[:page]).per(9)

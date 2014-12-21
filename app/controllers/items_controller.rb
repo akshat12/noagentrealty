@@ -28,11 +28,19 @@ class ItemsController < ApplicationController
       #@inventory.sort!{|a,b| a.available_until <=> b.available_until}
    # end
 
-   @inventory = RentalProperties.all
+   #@inventory = Items.all
+   #@inventory = Item.all
 
 	  # Paginate items
-	  @items = Kaminari.paginate_array(@inventory).page(params[:page]).per(9)
-    @csv = RentalProperties.order(:id)
+	  #@items = Kaminari.paginate_array(@inventory).page(params[:page]).per(9)
+    #
+
+      @inventory = Item.all
+
+      # Paginate items
+      @items = Kaminari.paginate_array(@inventory).page(params[:page]).per(9)
+      #@csv = Items.order(:id)
+
 	  
     respond_to do |format|
       format.js
@@ -52,7 +60,7 @@ end
   # Display a specific item
   def show
     # Find item from DB
-    @item = RentalProperties.find(params[:id])
+    @item = Item.find(params[:id])
     # Get item location
     #@location = @item.postal_code
 
@@ -67,7 +75,7 @@ end
   # New Item
   def new
     # Create a new item
-    @item = RentalProperties.new
+    @item = Item.new
     # Set default values for item attributes
     #@item.location = Location.new
     @item.available_from = Date.today.strftime("%Y-%m-%d")
@@ -83,7 +91,7 @@ end
   # Edit Item
   def edit
     # Find item in DB
-    @item = RentalProperties.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   # POST /items
@@ -93,7 +101,7 @@ end
     # Get current user
     @user = current_user
     # Create the item using the parameters from the user's request
-    @item = @user.RentalProperties.build(params[:item])
+    @item = @user.items.build(params[:item])
 
     respond_to do |format|
       # Save the item to the DB
@@ -104,7 +112,7 @@ end
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render json: @item, status: :created, location: @item }
         # Checks to see if any wish list contains the newly added item
-        check_wishlist(@item)
+        #check_wishlist(@item)
       else
         # Render the new item form with any errors
         format.html { render action: "new" }

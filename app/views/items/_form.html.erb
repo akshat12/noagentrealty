@@ -43,14 +43,10 @@
 
       <div class="row-fluid">
         <div class="field span4">
-          <%= f.label :category, :style => "display:inline"%>*
-          <%= f.select :category, item_categories %>
+          <%= f.label :property_type, :style => "display:inline"%>*
+          <%= f.select :property_type, item_categories %>
         </div>
 
-        <div class="field span4">
-          <%= f.label :condition, :style => "display:inline" %>*
-          <%= f.select :condition, item_conditions %>
-        </div>
 
       </div>
 
@@ -60,53 +56,47 @@
           <%= text_field :item, :available_from %>
         </div>
 
-        <div class="field span4 offset1">
-          <%= f.label :available_until, 'Available Until', :style => "display:inline" %>*
-          <%= text_field :item, :available_until %>
+        <div class="field input-medium">
+          <%= f.label :lease_duration, 'Lease Duration (Months)' %>
+          <%= f.number_field :lease_duration, :step => "1", :min => 3 %>
         </div>
+
+        <div class="field input-medium">
+          <%= f.label :rent, 'Rent' %>
+          <%= f.number_field :rent, :step => "100", :min => 500 %>
+        </div>
+
       </div>
 
     </div>
     <div class="span4 drop-shadow lifted description-input">
 
+    
       <div class="field input-medium">
-        <%= f.label :quantity, 'Quantity' %>
-        <%= f.number_field :quantity, :min => 0 %>
+        <%= f.label :number_of_rooms, 'Number of Rooms' %>
+        <%= f.number_field :number_of_rooms, :step => "1", :min => 0 %>
       </div>
 
       <div class="field input-medium">
-        <%= f.label :price, 'Price($)' %>
-        <%= f.number_field :price, :step => "0.1", :min => 0 %>
+        <%= f.label :number_of_bathrooms, 'Number of Bathrooms' %>
+        <%= f.number_field :number_of_bathrooms, :step => "0.5", :min => 1 %>
       </div>
 
       <div class="field input-medium">
-        <%= f.label :length, 'Length (m)' %>
-        <%= f.number_field :length, :step => "0.1", :min => 0 %>
+        <%= f.label :number_of_study, 'Number of Study' %>
+        <%= f.number_field :number_of_study, :step => "1", :min => 0 %>
       </div>
 
       <div class="field input-medium">
-        <%= f.label :width, 'Width (m)' %>
-        <%= f.number_field :width, :step => "0.1", :min => 0 %>
+        <%= f.label :unit_number, 'Unit Number' , :style => "display:inline" %>*
+        <%= f.text_field :unit_number %>
       </div>
 
       <div class="field input-medium">
-        <%= f.label :height, 'Height (m)' %>
-        <%= f.number_field :height, :step => "0.1", :min => 0 %>
+        <%= f.label :postal_code, 'Postal Code' %>
+        <%= f.text_field :postal_code %>
       </div>
 
-      <div class="field input-medium">
-        <%= f.label :weight, 'Weight (kg)' %>
-        <%= f.number_field :weight, :step => "0.1", :min => 0 %>
-      </div>
-
-      <div>
-        <%= f.fields_for :location do |ff| %>
-        <div class="field">
-          <%= ff.label :address, 'Location' %>
-          <%= ff.text_field :address %>
-        </div>
-        <% end %>
-      </div>
 
     </div>
   </div>

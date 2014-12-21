@@ -2,22 +2,9 @@ module ItemsHelper
 
 def item_categories
 [
-   ['Appliances'],
-   ['Architectural'],
-   ['Cabinets'],
-   ['Electrical'],
-   ['Exterior Doors'],
-   ['Flooring'],
-   ['Furniture'],
-   ['Hardware'],
-   ['Heating & Cooling'],
-   ['Interior Doors'],
-   ['Lumber'],
-   ['Masonry, Tile & Stone'],
-   ['Plumbing'],
-   ['Tools'],
-   ['Windows'],
-   ['Other']
+   ['Landed Property'],
+   ['Condominium'],
+   ['Apartment']
 ]
 end
 
